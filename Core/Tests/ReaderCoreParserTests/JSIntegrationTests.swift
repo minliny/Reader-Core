@@ -46,11 +46,14 @@ final class JSIntegrationTests: XCTestCase {
 
     /// @js: code modifies multiple list items; querySelectorAll count is reflected.
     func testJSRuleModifiesMultipleElementsInTOCFlow() throws {
+        // <li> elements contain only the chapter title (no embedded URL); the TOC
+        // parser therefore uses title == chapterURL.  This keeps the assertion
+        // "hasSuffix(-ok)" unambiguous: the JS-mutated textContent IS the title.
         let html = """
         <html><body>
           <ul>
-            <li class="ch">Chapter 1|/ch/1</li>
-            <li class="ch">Chapter 2|/ch/2</li>
+            <li class="ch">Chapter 1</li>
+            <li class="ch">Chapter 2</li>
           </ul>
         </body></html>
         """
