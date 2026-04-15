@@ -63,7 +63,14 @@ public final class BasicCookieJar: ScopedCookieJar, @unchecked Sendable {
     // MARK: - ScopedCookieJar (scoped operations)
 
     public func getCookies(for domain: String, path: String, scopeKey: CookieJarScopeKey) async -> [Cookie] {
-        await store.matchingCookies(domain: domain, path: path, scopeKey: scopeKey)
+        let scoped = await store.matchingCookies(domain: domain, path: path, scopeKey: scopeKey)
+        // When the specific scope is empty, fall back to the default scope so that
+        // cookies set without an explicit scope key (e.g. via a raw `layer.send()`
+        // bootstrap call) are visible to subsequent scoped reads for the same host.
+        // Guard against a redundant recursive lookup when the caller already IS
+        // the default scope.
+        guard scoped.isEmpty, scopeKey != .default else { return scoped }
+        return await store.matchingCookies(domain: domain, path: path, scopeKey: .default)
     }
 
     public func setCookie(_ cookie: Cookie, scopeKey: CookieJarScopeKey) async {

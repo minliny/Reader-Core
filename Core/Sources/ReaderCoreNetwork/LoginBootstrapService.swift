@@ -106,6 +106,23 @@ public struct LoginBootstrapService: Sendable {
             lastResponse = try await send(submitRequest)
         }
 
+        // Eagerly check failure markers on the submit response before dispatching
+        // the verification request.  A failure marker in the submit body (e.g.
+        // "Invalid password.") must abort the flow immediately; without this check
+        // the verification slot would consume the next enqueued response, shifting
+        // all subsequent mock (or real) responses by one position.
+        if bootstrap.verificationRequest != nil, let response = lastResponse {
+            let body = String(data: response.data, encoding: .utf8)
+                    ?? String(data: response.data, encoding: .isoLatin1)
+                    ?? ""
+            if let marker = bootstrap.failureMarkers.first(where: { body.contains($0) }) {
+                throw loginRequiredError(
+                    sourceURL: source.loginUrl ?? source.bookSourceUrl,
+                    detail: "Login bootstrap matched failure marker: \(marker)"
+                )
+            }
+        }
+
         if let verificationRequest = bootstrap.verificationRequest {
             let response = try await send(verificationRequest)
             try validateBootstrap(response, source: source, bootstrap: bootstrap)
