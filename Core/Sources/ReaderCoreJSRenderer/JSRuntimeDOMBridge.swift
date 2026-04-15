@@ -318,7 +318,9 @@ extension JSRuntimeDOMBridge {
       });
 
       // Overwrite the frozen document stub created by bootstrapDocumentScript.
-      this.document = {
+      // "use strict" makes `this` undefined in an IIFE; use globalThis (ES2020,
+      // available in JavaScriptCore ≥ macOS 10.15) to reach the global object.
+      globalThis.document = {
         documentElement: _docEl,
         querySelector:    function (sel) { return _qsa(sel, [_root])[0] || null; },
         querySelectorAll: function (sel) { return _qsa(sel, [_root]); },
