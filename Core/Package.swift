@@ -32,7 +32,8 @@ let package = Package(
         .executable(name: "SampleLogin003IsolationRunner", targets: ["SampleLogin003IsolationRunner"]),
         .executable(name: "AutoSampleExtractorRunner", targets: ["AutoSampleExtractorRunner"]),
         .library(name: "ReaderCoreJSRenderer", targets: ["ReaderCoreJSRenderer"]),
-        .library(name: "ReaderPlatformAdapters", targets: ["ReaderPlatformAdapters"])
+        .library(name: "ReaderPlatformAdapters", targets: ["ReaderPlatformAdapters"]),
+        .library(name: "ReaderCoreServices", targets: ["ReaderCoreServices"])
     ],
     dependencies: [],
     targets: [
@@ -136,6 +137,15 @@ let package = Package(
             name: "ReaderCoreJSRenderer",
             dependencies: ["ReaderCoreParser", "ReaderCoreProtocols"]
         ),
+        .target(
+            name: "ReaderCoreServices",
+            dependencies: [
+                "ReaderCoreModels",
+                "ReaderCoreProtocols",
+                "ReaderCoreNetwork",
+                "ReaderCoreParser"
+            ]
+        ),
         .testTarget(
             name: "ReaderCoreModelsTests",
             dependencies: ["ReaderCoreModels"]
@@ -159,6 +169,14 @@ let package = Package(
         .testTarget(
             name: "ReaderCoreJSRendererTests",
             dependencies: ["ReaderCoreJSRenderer"]
+        ),
+        .testTarget(
+            name: "ReaderCoreServicesTests",
+            dependencies: [
+                "ReaderCoreServices",
+                "ReaderCoreModels",
+                "ReaderCoreProtocols"
+            ]
         )
     ]
 )
