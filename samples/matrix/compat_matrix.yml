@@ -1,9 +1,9 @@
-version: "0.22.0"
-generatedAt: "2026-04-11T00:00:00+08:00"
-scope: "p1-cookie-header-login-compatibility-expansion"
+version: "0.23.0"
+generatedAt: "2026-04-20T00:00:00+08:00"
+scope: "p0-simple-css-tag-class-support"
 summary:
-  totalSamples: 42
-  levelA: 28
+  totalSamples: 43
+  levelA: 29
   levelB: 3
   levelC: 6
   levelD: 5
@@ -12,7 +12,7 @@ summary:
   p0PassRate: 100.0
   p0SmokeCount: 5
   p1PassRate: 51.7
-  note: "v0.22.0: P1 Cookie/Header/Login expansion adds SAMPLE-P1-COOKIE-WENSANG-001, SAMPLE-P1-COOKIE-XIANGSHU-001, SAMPLE-P1-COOKIE-XUANYGE-001; no new failure taxonomy."
+  note: "v0.23.0: adds tag.class compound selector support to NonJSRuleScheduler.extractBySimpleCSS; driven by auto_997f4a49 online Search regression. Adds 1 new p0/unit_contract entry (simple_css_tag_class_support)."
 samples:
   - sampleId: "css_executor_selector_semantics_contract"
     source: "unit_contract"
@@ -1107,3 +1107,37 @@ samples:
     notes:
       - "static-only validation"
       - "executable verification pending"
+
+  - sampleId: "simple_css_tag_class_support"
+    source: "unit_contract"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "CSS"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: null
+    expectedPath: null
+    verification:
+      status: "PENDING_CI"
+      type: "unit_test_pending_swift"
+      testFile: "Core/Tests/ReaderCoreParserTests/NonJSTagClassRegressionTests.swift"
+      localAuxiliary: "Node.js simulation — sample_001-005 all PASS; css:li.searchresult returns 7 live results against haitaozhe.com"
+      note: "Swift toolchain unavailable on Windows host; XCTest file committed and awaits macOS CI run."
+    notes:
+      - "BEFORE this fix: extractBySimpleCSS only handled .class / #id / tagname; tag.class fell through to literal-tag match and returned 0 nodes."
+      - "THIS FIX: adds a branch before the tagname fallthrough that triggers when selector contains a '.' not at position 0."
+      - "Splits selector into tagPart + clsPart via split(separator: '.', maxSplits: 1); constrains both tag name and class attribute in the regex."
+      - "SCOPE: supports single tag.class only. Does NOT support: descendant selectors, multi-class (li.a.b), attribute selectors, pseudo-classes."
+      - "Driven by: auto_997f4a49.json ruleSearch=css:li.searchresult failing with SEARCH_FAILED before fix."
+      - "Online auxiliary: css:li.searchresult on haitaozhe.com live Search HTML returns 7 results (PASS)."
+      - "TOC auxiliary: css:a returns 53 non-empty results; chapter list is JS-loaded (only 1 link in server HTML — not a parser issue)."
+      - "Content auxiliary: HTTP 403 on chapter URL — 当前区域禁止访问 (network/geo restriction, not a parser issue)."

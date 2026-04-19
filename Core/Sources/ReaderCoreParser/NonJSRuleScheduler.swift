@@ -124,14 +124,37 @@ private extension NonJSRuleScheduler {
     }
 
     func applyCSS(_ selector: String, on inputs: [String], flow: ParseFlow) throws -> [String] {
-        let trimmed = selector.trimmingCharacters(in: .whitespacesAndNewlines)
-        if trimmed.isEmpty {
+        var fullSelector = selector.trimmingCharacters(in: .whitespacesAndNewlines)
+        if fullSelector.isEmpty {
             throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_css_selector", message: "CSS selector is empty.")
         }
+        
+        // Handle ! suffix for index trimming (e.g., .chapter!0:1:2:3:4:5)
+        var indices: [Int]? = nil
+        if let exclamationIndex = fullSelector.range(of: "!")?.lowerBound {
+            let cssPart = String(fullSelector[..<exclamationIndex])
+            let indexPart = String(fullSelector[fullSelector.index(after: exclamationIndex)...])
+            let indexStrings = indexPart.split(separator: ":").map(String.init)
+            indices = indexStrings.compactMap { Int($0) }
+            fullSelector = cssPart
+        }
+        
         var output: [String] = []
         for input in inputs {
-            output.append(contentsOf: extractBySimpleCSS(selector: trimmed, html: input))
+            output.append(contentsOf: extractBySimpleCSS(selector: fullSelector, html: input))
         }
+        
+        // Apply index trimming if specified
+        if let indices = indices, !indices.isEmpty {
+            var trimmed: [String] = []
+            for idx in indices {
+                if idx < output.count {
+                    trimmed.append(output[idx])
+                }
+            }
+            output = trimmed
+        }
+        
         return output
     }
 
@@ -205,17 +228,38 @@ private extension NonJSRuleScheduler {
     }
 
     func extractBySimpleCSS(selector: String, html: String) -> [String] {
-        if selector.hasPrefix(".") {
-            let cls = NSRegularExpression.escapedPattern(for: String(selector.dropFirst()))
+        var normalizedSelector = selector
+        // Handle "class." format (e.g., class.leftbox)
+        if normalizedSelector.hasPrefix("class.") {
+            normalizedSelector = "." + String(normalizedSelector.dropFirst(6))
+        }
+        // Handle "id." format (e.g., id.main)
+        if normalizedSelector.hasPrefix("id.") {
+            normalizedSelector = "#" + String(normalizedSelector.dropFirst(3))
+        }
+        
+        // Handle "tag.class" format (e.g., li.b_algo)
+        if normalizedSelector.contains(".") && !normalizedSelector.hasPrefix(".") {
+            let parts = normalizedSelector.split(separator: ".", maxSplits: 1).map(String.init)
+            if parts.count == 2 {
+                let tag = NSRegularExpression.escapedPattern(for: parts[0])
+                let cls = NSRegularExpression.escapedPattern(for: parts[1])
+                let pattern = "<\(tag)[^>]*class=[\"'][^\"']*\\b\(cls)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\(tag)>"
+                return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
+            }
+        }
+        
+        if normalizedSelector.hasPrefix(".") {
+            let cls = NSRegularExpression.escapedPattern(for: String(normalizedSelector.dropFirst()))
             let pattern = "<([a-zA-Z0-9]+)[^>]*class=[\"'][^\"']*\\b\(cls)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\\1>"
             return regexGroupMatches(pattern: pattern, in: html, group: 2).map(stripHTMLTags)
         }
-        if selector.hasPrefix("#") {
-            let id = NSRegularExpression.escapedPattern(for: String(selector.dropFirst()))
+        if normalizedSelector.hasPrefix("#") {
+            let id = NSRegularExpression.escapedPattern(for: String(normalizedSelector.dropFirst()))
             let pattern = "<([a-zA-Z0-9]+)[^>]*id=[\"']\(id)[\"'][^>]*>([\\s\\S]*?)</\\1>"
             return regexGroupMatches(pattern: pattern, in: html, group: 2).map(stripHTMLTags)
         }
-        let tag = NSRegularExpression.escapedPattern(for: selector)
+        let tag = NSRegularExpression.escapedPattern(for: normalizedSelector)
         let pattern = "<\(tag)[^>]*>([\\s\\S]*?)</\(tag)>"
         return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
     }
