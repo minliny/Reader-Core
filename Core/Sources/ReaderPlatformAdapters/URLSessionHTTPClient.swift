@@ -3,6 +3,34 @@ import Foundation
 import FoundationNetworking
 #endif
 import ReaderCoreProtocols
+
+// Linux Swift 5.9 does not expose URLSession.data(for:) async variant.
+// Provide a compatibility shim using the completion-handler API.
+#if !canImport(Darwin)
+extension URLSession {
+    func data(for request: URLRequest) async throws -> (Data, URLResponse) {
+        try await withCheckedThrowingContinuation { continuation in
+            let task = self.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                    return
+                }
+                guard let data = data, let response = response else {
+                    continuation.resume(throwing: URLError(.badServerResponse))
+                    return
+                }
+                continuation.resume(returning: (data, response))
+            }
+            task.resume()
+        }
+    }
+
+    func data(for request: URLRequest, delegate: URLSessionTaskDelegate?) async throws -> (Data, URLResponse) {
+        // Delegate is ignored on Linux (redirect capture requires URLSessionConfiguration)
+        return try await data(for: request)
+    }
+}
+#endif
 import ReaderCoreModels
 
 private actor RedirectResponseStore {

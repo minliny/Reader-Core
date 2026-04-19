@@ -4,6 +4,8 @@ import FoundationNetworking
 #endif
 import ReaderCoreProtocols
 
+
+
 /// Minimal reference adapter for platform network calls.
 public final class MinimalHTTPAdapter: HTTPClient, @unchecked Sendable {
     private let session: URLSession
