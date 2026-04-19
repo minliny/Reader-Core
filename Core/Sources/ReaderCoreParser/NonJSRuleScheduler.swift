@@ -129,26 +129,41 @@ private extension NonJSRuleScheduler {
             throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_css_selector", message: "CSS selector is empty.")
         }
         
-        // Handle ! suffix for index trimming (e.g., .chapter!0:1:2:3:4:5)
+        // Handle trailing ! suffix for index trimming (e.g., .chapter!0:1:2:3:4:5).
+        // Only activate when the ! is the last one in the selector AND the suffix is a
+        // non-empty colon-separated list of non-negative integers with no leading/trailing
+        // colons and no consecutive colons.  Any other use of ! is left as part of the
+        // selector so that selectors like `dd[!10]` are not silently corrupted.
         var indices: [Int]? = nil
-        if let exclamationIndex = fullSelector.range(of: "!")?.lowerBound {
+        if let exclamationIndex = fullSelector.lastIndex(of: "!") {
             let cssPart = String(fullSelector[..<exclamationIndex])
             let indexPart = String(fullSelector[fullSelector.index(after: exclamationIndex)...])
-            let indexStrings = indexPart.split(separator: ":").map(String.init)
-            indices = indexStrings.compactMap { Int($0) }
-            fullSelector = cssPart
+            let validChars = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: ":"))
+            let isValidSuffix = !indexPart.isEmpty
+                && indexPart.rangeOfCharacter(from: validChars.inverted) == nil
+                && !indexPart.hasPrefix(":")
+                && !indexPart.hasSuffix(":")
+                && !indexPart.contains("::")
+            if isValidSuffix {
+                let parsed = indexPart.split(separator: ":").compactMap { Int(String($0)) }
+                if !parsed.isEmpty {
+                    indices = parsed
+                    fullSelector = cssPart
+                }
+            }
         }
-        
+
         var output: [String] = []
         for input in inputs {
             output.append(contentsOf: extractBySimpleCSS(selector: fullSelector, html: input))
         }
-        
-        // Apply index trimming if specified
+
+        // Apply index trimming if specified.  Use indices.contains to guard against
+        // negative values and out-of-range positions without trapping.
         if let indices = indices, !indices.isEmpty {
             var trimmed: [String] = []
             for idx in indices {
-                if idx < output.count {
+                if output.indices.contains(idx) {
                     trimmed.append(output[idx])
                 }
             }
