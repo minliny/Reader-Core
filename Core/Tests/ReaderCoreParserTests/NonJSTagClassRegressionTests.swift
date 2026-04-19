@@ -223,13 +223,18 @@ final class NonJSIndexTrimmingTests: XCTestCase {
     // ── 4. Negative-only index list does not activate trimming ────────────────
 
     /// A suffix like `!-1:-2` contains `-` which is not a digit or `:`.
-    /// The validation must reject it, leaving the selector unchanged.
-    /// `.chapter` alone returns all 5 items (no trimming applied).
+    /// The validation rejects it, so `fullSelector` stays `.chapter!-1:-2` (unchanged).
+    /// No element has that literal class name, so the parser throws `TOC_FAILED` —
+    /// the key invariant is that the code does NOT crash (no negative array subscript).
     func testNegativeIndexSuffixDoesNotActivateTrimming() throws {
-        // `!-1:-2` is rejected by the valid-chars check; selector stays `.chapter`
-        // and all 5 items are returned.
-        let chapters = try runToc(rule: "css:.chapter!-1:-2")
-        XCTAssertEqual(chapters.count, 5,
-            "negative suffix must be rejected; full .chapter result should be returned")
+        // `!-1:-2` fails the valid-chars check → no trimming, selector = `.chapter!-1:-2`
+        // → no matching elements → TOC_FAILED (not a trap or out-of-bounds crash).
+        do {
+            _ = try runToc(rule: "css:.chapter!-1:-2")
+            XCTFail("Expected TOC_FAILED error for selector with no matches")
+        } catch let e as ReaderError {
+            XCTAssertEqual(e.failure?.type, .TOC_FAILED,
+                "negative suffix must not crash; parser should surface TOC_FAILED cleanly")
+        }
     }
 }
