@@ -159,6 +159,11 @@ let package = Package(
         .testTarget(
             name: "ReaderCoreJSRendererTests",
             dependencies: ["ReaderCoreJSRenderer"]
+        ),
+        .executableTarget(
+            name: "LinuxSmokeRunner",
+            dependencies: ["ReaderCoreParser", "ReaderCoreModels"],
+            path: "LinuxSmokeRunner"
         )
     ]
 )
