@@ -21,6 +21,34 @@ let allSamples: [SmokeSample] = [
         tocHTMLPath:     "samples/fixtures/html/sample_001_toc.html",
         contentHTMLPath: "samples/fixtures/html/sample_001_content.html"
     ),
+    SmokeSample(
+        id: "sample_002",
+        bookSourcePath: "samples/booksources/p0_non_js/sample_002.json",
+        searchHTMLPath:  "samples/fixtures/html/sample_002_search.html",
+        tocHTMLPath:     "samples/fixtures/html/sample_002_toc.html",
+        contentHTMLPath: "samples/fixtures/html/sample_002_content.html"
+    ),
+    SmokeSample(
+        id: "sample_003",
+        bookSourcePath: "samples/booksources/p0_non_js/sample_003.json",
+        searchHTMLPath:  "samples/fixtures/html/sample_003_search.html",
+        tocHTMLPath:     "samples/fixtures/html/sample_003_toc.html",
+        contentHTMLPath: "samples/fixtures/html/sample_003_content.html"
+    ),
+    SmokeSample(
+        id: "sample_004",
+        bookSourcePath: "samples/booksources/p0_non_js/sample_004.json",
+        searchHTMLPath:  "samples/fixtures/html/sample_004_search.html",
+        tocHTMLPath:     "samples/fixtures/html/sample_004_toc.html",
+        contentHTMLPath: "samples/fixtures/html/sample_004_content.html"
+    ),
+    SmokeSample(
+        id: "sample_005",
+        bookSourcePath: "samples/booksources/p0_non_js/sample_005.json",
+        searchHTMLPath:  "samples/fixtures/html/sample_005_search.html",
+        tocHTMLPath:     "samples/fixtures/html/sample_005_toc.html",
+        contentHTMLPath: "samples/fixtures/html/sample_005_content.html"
+    ),
 ]
 
 struct SmokeRunner {
