@@ -41,6 +41,20 @@ swift run --package-path Core --configuration release LinuxSmokeRunner
 - TOC 解析（fixture HTML → `TOCItem[]`）
 - Content 解析（fixture HTML → `ReadingFlowPage.content`）
 
+### 当前验证状态（2026-04-19）
+
+| Sample | Search | TOC | Content | Linux WSL2 |
+|--------|--------|-----|---------|------------|
+| `sample_001` | 2 results | 3 chapters | 35 chars | ✅ |
+| `sample_002` | 2 results | 3 chapters | 50 chars | ✅ |
+| `sample_003` | 2 results | 3 chapters | 54 chars | ✅ |
+| `sample_004` | 3 results | 4 chapters | 50 chars | ✅ |
+| `sample_005` | 2 results | 3 chapters | 52 chars | ✅ |
+
+**Linux Core Capability Line: READY**（5/5 NonJS 样本全部通过，Search / TOC / Content 三链路已验证）
+
+> 此结论仅针对 NonJS 核心能力，不代表 full-suite 在 Linux 下 fully passing。Full-suite 在 Linux 下仍被 CryptoKit / JavaScriptCore / URLProtocol 阻塞。
+
 ### 已知状态
 | 模块 | Linux 构建 | macOS 构建 |
 |------|-----------|-----------|
