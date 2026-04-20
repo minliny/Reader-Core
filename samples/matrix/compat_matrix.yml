@@ -1,6 +1,39 @@
 version: "0.23.0"
 generatedAt: "2026-04-20T00:00:00+08:00"
 scope: "p0-simple-css-tag-class-support"
+parser:
+  version: V2
+  engine: NonJSRuleScheduler
+  simple_selector:
+    supported:
+      - ".class"
+      - "#id"
+      - "tag"
+      - "tag.class"
+    unsupported:
+      - "tag#id"
+      - ".a.b"
+      - "tag.class.other"
+      - "descendant_selector"
+      - "attribute_selector"
+      - "pseudo_selector"
+    behavior:
+      invalid_selector: no_match
+      fallback: disabled
+  trimming:
+    suffix: "!"
+    grammar: strict
+    invalid_suffix: no_effect
+  validation:
+    ci: passed
+    contract_tests: passed
+    test_coverage:
+      - "NonJSTagClassRegressionTests (5 tests)"
+      - "SimpleSelectorGrammarTests (8 tests)"
+      - "NonJSIndexTrimmingTests (4 tests)"
+      - "SimpleSelectorContractTests (8 tests)"
+    status: PASS
+  scope: "This is NOT a CSS parser. Only 4 simple selector forms are supported."
 summary:
   totalSamples: 43
   levelA: 29
@@ -1127,12 +1160,23 @@ samples:
     metadataPath: null
     expectedPath: null
     verification:
-      status: "PENDING_CI"
-      type: "unit_test_pending_swift"
+      status: "VERIFIED"
+      type: "unit_test_verified"
       testFile: "Core/Tests/ReaderCoreParserTests/NonJSTagClassRegressionTests.swift"
-      localAuxiliary: "Node.js simulation — sample_001-005 all PASS; css:li.searchresult returns 7 live results against haitaozhe.com"
-      note: "Swift toolchain unavailable on Windows host; XCTest file committed and awaits macOS CI run."
+      additionalTests:
+        - "SimpleSelectorGrammarTests (8 invalid selector tests)"
+        - "NonJSIndexTrimmingTests (4 trimming tests)"
+      note: "Parser V2 baseline: simple selector grammar unified with formal AST. CI verified on macOS-14."
     notes:
+      - "Parser V2 Baseline (2026-04-20): NonJSRuleScheduler simple selector grammar unified."
+      - "SUPPORTED SELECTORS:"
+      - "  - .class     → byClass(String)"
+      - "  - #id        → byId(String)"
+      - "  - tag        → byTag(String)"
+      - "  - tag.class  → byTagAndClass(tag: String, className: String)"
+      - "NOT SUPPORTED (explicitly rejected, no fallback):"
+      - "  - tag#id, .a.b, tag.class.other, descendant (space), attribute [attr], pseudo :, > combinator"
+      - "TRIMMING: ! suffix grammar is independent. Illegal suffix (negative, invalid chars) does NOT activate trimming."
       - "BEFORE this fix: extractBySimpleCSS only handled .class / #id / tagname; tag.class fell through to literal-tag match and returned 0 nodes."
       - "THIS FIX: adds a branch before the tagname fallthrough that triggers when selector contains a '.' not at position 0."
       - "Splits selector into tagPart + clsPart via split(separator: '.', maxSplits: 1); constrains both tag name and class attribute in the regex."
