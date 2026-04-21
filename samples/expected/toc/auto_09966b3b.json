@@ -1,0 +1,22 @@
+{
+  "expected": {
+    "chapterCount": 3,
+    "chapters": [
+      {
+        "chapterTitle": "第一章",
+        "chapterURL": "/chapter/1",
+        "chapterIndex": 0
+      },
+      {
+        "chapterTitle": "第二章",
+        "chapterURL": "/chapter/2",
+        "chapterIndex": 1
+      },
+      {
+        "chapterTitle": "第三章",
+        "chapterURL": "/chapter/3",
+        "chapterIndex": 2
+      }
+    ]
+  }
+}

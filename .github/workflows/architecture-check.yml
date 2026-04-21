@@ -1,0 +1,36 @@
+name: Architecture Check
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/architecture-check.yml"
+      - "scripts/check_architecture.sh"
+      - "Core/Sources/ReaderCoreParser/**"
+      - "Core/Sources/ReaderPlatformAdapters/**"
+      - "ReaderCoreParser/**"
+      - "ReaderPlatformAdapters/**"
+  push:
+    branches:
+      - "**"
+    paths:
+      - ".github/workflows/architecture-check.yml"
+      - "scripts/check_architecture.sh"
+      - "Core/Sources/ReaderCoreParser/**"
+      - "Core/Sources/ReaderPlatformAdapters/**"
+      - "ReaderCoreParser/**"
+      - "ReaderPlatformAdapters/**"
+
+jobs:
+  architecture-check:
+    name: Architecture Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run architecture boundary check
+        shell: bash
+        run: bash scripts/check_architecture.sh

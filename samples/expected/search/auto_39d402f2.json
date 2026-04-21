@@ -1,0 +1,15 @@
+{
+  "expected": {
+    "resultCount": 2,
+    "items": [
+      {
+        "title": "小说标题1",
+        "detailURL": "/book/1"
+      },
+      {
+        "title": "小说标题2",
+        "detailURL": "/book/2"
+      }
+    ]
+  }
+}
