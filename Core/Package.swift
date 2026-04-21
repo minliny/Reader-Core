@@ -30,7 +30,18 @@ let package = Package(
         .executable(name: "SampleLogin002IsolationRunner", targets: ["SampleLogin002IsolationRunner"]),
         .executable(name: "SampleLogin003FetchRunner", targets: ["SampleLogin003FetchRunner"]),
         .executable(name: "SampleLogin003IsolationRunner", targets: ["SampleLogin003IsolationRunner"]),
-        .executable(name: "AutoSampleExtractorRunner", targets: ["AutoSampleExtractorRunner"]),
+        .executable(
+            name: "LinuxSmokeRunner",
+            targets: ["LinuxSmokeRunner"]
+        ),
+        .executable(
+            name: "LinuxOnlineSmokeRunner",
+            targets: ["LinuxOnlineSmokeRunner"]
+        ),
+        .executable(
+            name: "AutoSampleExtractorRunner",
+            targets: ["AutoSampleExtractorRunner"]
+        ),
         .library(name: "ReaderCoreJSRenderer", targets: ["ReaderCoreJSRenderer"]),
         .library(name: "ReaderPlatformAdapters", targets: ["ReaderPlatformAdapters"])
     ],
@@ -164,6 +175,11 @@ let package = Package(
             name: "LinuxSmokeRunner",
             dependencies: ["ReaderCoreParser", "ReaderCoreModels"],
             path: "LinuxSmokeRunner"
+        ),
+        .executableTarget(
+            name: "LinuxOnlineSmokeRunner",
+            dependencies: ["ReaderCoreParser", "ReaderCoreModels", "ReaderPlatformAdapters"],
+            path: "LinuxOnlineSmokeRunner"
         )
     ]
 )

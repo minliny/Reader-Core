@@ -69,6 +69,82 @@ private struct RuleStage {
     let raw: String
 }
 
+private enum SimpleSelector: Equatable {
+    case byClass(String)
+    case byId(String)
+    case byTag(String)
+    case byTagAndClass(tag: String, className: String)
+}
+
+private extension SimpleSelector {
+    static func parse(_ raw: String) -> SimpleSelector? {
+        let input = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !input.isEmpty else { return nil }
+        guard !input.contains(" ") else { return nil }
+        guard !input.contains(">") else { return nil }
+        guard !input.contains("+") else { return nil }
+        guard !input.contains("[") else { return nil }
+        guard !input.contains("]") else { return nil }
+
+        if input.hasPrefix("class.") {
+            let ident = String(input.dropFirst(6))
+            guard isValidIdent(ident) else { return nil }
+            return .byClass(ident)
+        }
+        if input.hasPrefix("id.") {
+            let ident = String(input.dropFirst(3))
+            guard isValidIdent(ident) else { return nil }
+            return .byId(ident)
+        }
+        if input.hasPrefix(".") {
+            let ident = String(input.dropFirst())
+            guard !ident.isEmpty else { return nil }
+            guard !ident.contains(".") else { return nil }
+            guard isValidIdent(ident) else { return nil }
+            return .byClass(ident)
+        }
+        if input.hasPrefix("#") {
+            let ident = String(input.dropFirst())
+            guard !ident.isEmpty else { return nil }
+            guard !ident.contains("#") else { return nil }
+            guard isValidIdent(ident) else { return nil }
+            return .byId(ident)
+        }
+        if let dotIndex = input.firstIndex(of: ".") {
+            let tagPart = String(input[..<dotIndex])
+            let classPart = String(input[input.index(after: dotIndex)...])
+            guard !tagPart.isEmpty else { return nil }
+            guard !classPart.isEmpty else { return nil }
+            guard isValidTagName(tagPart) else { return nil }
+            guard isValidIdent(classPart) else { return nil }
+            return .byTagAndClass(tag: tagPart, className: classPart)
+        }
+
+        guard isValidTagName(input) else { return nil }
+        return .byTag(input)
+    }
+
+    private static func isValidIdent(_ s: String) -> Bool {
+        guard !s.isEmpty else { return false }
+        for ch in s {
+            guard ch.isASCII else { return false }
+            guard ch.isLetter || ch.isNumber || ch == "_" || ch == "-" else { return false }
+        }
+        return true
+    }
+
+    private static func isValidTagName(_ s: String) -> Bool {
+        guard !s.isEmpty else { return false }
+        guard let first = s.first else { return false }
+        guard first.isASCII && first.isLetter else { return false }
+        for ch in s.dropFirst() {
+            guard ch.isASCII else { return false }
+            guard ch.isLetter || ch.isNumber || ch == "-" else { return false }
+        }
+        return true
+    }
+}
+
 private extension NonJSRuleScheduler {
     func parseStages(_ rule: String) -> [RuleStage] {
         let parts = rule.split(separator: "|").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty }
@@ -129,40 +205,24 @@ private extension NonJSRuleScheduler {
             throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_css_selector", message: "CSS selector is empty.")
         }
         
-        // Handle trailing ! suffix for index trimming (e.g., .chapter!0:1:2:3:4:5).
-        // Only activate when the ! is the last one in the selector AND the suffix is a
-        // non-empty colon-separated list of non-negative integers with no leading/trailing
-        // colons and no consecutive colons.  Any other use of ! is left as part of the
-        // selector so that selectors like `dd[!10]` are not silently corrupted.
-        var indices: [Int]? = nil
-        if let exclamationIndex = fullSelector.lastIndex(of: "!") {
-            let cssPart = String(fullSelector[..<exclamationIndex])
-            let indexPart = String(fullSelector[fullSelector.index(after: exclamationIndex)...])
-            let validChars = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: ":"))
-            let isValidSuffix = !indexPart.isEmpty
-                && indexPart.rangeOfCharacter(from: validChars.inverted) == nil
-                && !indexPart.hasPrefix(":")
-                && !indexPart.hasSuffix(":")
-                && !indexPart.contains("::")
-            if isValidSuffix {
-                let parsed = indexPart.split(separator: ":").compactMap { Int(String($0)) }
-                if !parsed.isEmpty {
-                    indices = parsed
-                    fullSelector = cssPart
-                }
-            }
+        // Strict grammar: !<index>:<index>:... where each index is a non-negative integer.
+        // Grammar: trimming-suffix ::= "!" index-list
+        // index-list ::= index (":" index)+
+        // index ::= "0" | positive-integer
+        // Invalid suffix: empty, leading/trailing colon, consecutive colons, negative, non-digit chars.
+        let trimming = parseTrimmingSuffix(fullSelector)
+        if let trimming = trimming {
+            fullSelector = trimming.selector
         }
 
         var output: [String] = []
         for input in inputs {
             output.append(contentsOf: extractBySimpleCSS(selector: fullSelector, html: input))
         }
-
-        // Apply index trimming if specified.  Use indices.contains to guard against
-        // negative values and out-of-range positions without trapping.
-        if let indices = indices, !indices.isEmpty {
+        // Apply strict-grammar trimming if suffix was valid.
+        if let trimming = trimming {
             var trimmed: [String] = []
-            for idx in indices {
+            for idx in trimming.indices {
                 if output.indices.contains(idx) {
                     trimmed.append(output[idx])
                 }
@@ -242,41 +302,86 @@ private extension NonJSRuleScheduler {
         return tokens
     }
 
+    /// Parses the `!` trimming suffix from a CSS selector using strict grammar.
+    ///
+    /// Grammar: `<selector>!<index>:<index>:...`
+    /// - Each `<index>` must be a non-negative decimal integer (no sign, no leading zeros).
+    /// - Must have at least one index.
+    /// - No leading/trailing/consecutive colons.
+    ///
+    /// - Parameters:
+    ///   - selector: The full selector string to parse.
+    /// - Returns: `(selector, [indices])` if grammar matches, `nil` otherwise.
+    ///
+    /// Invalid examples (returns nil):
+    ///   - `.chapter!`         → empty index
+    ///   - `.chapter!:`        → leading colon
+    ///   - `.chapter!0:`       → trailing colon
+    ///   - `.chapter!0::1`     → consecutive colons
+    ///   - `.chapter!-1`       → negative index
+    ///   - `.chapter!1a`      → non-digit character
+    private func parseTrimmingSuffix(_ selector: String) -> (selector: String, indices: [Int])? {
+        guard let exclamationIndex = selector.lastIndex(of: "!") else {
+            return nil
+        }
+
+        let cssPart = String(selector[..<exclamationIndex])
+        guard !cssPart.isEmpty else { return nil }
+
+        let indexPart = String(selector[selector.index(after: exclamationIndex)...])
+
+        // Grammar rule: index-list ::= index (":" index)+
+        // index ::= "0" | positive-integer
+        guard !indexPart.isEmpty else { return nil }
+        guard !indexPart.hasPrefix(":") else { return nil }
+        guard !indexPart.hasSuffix(":") else { return nil }
+        guard !indexPart.contains("::") else { return nil }
+
+        let segments = indexPart.split(separator: ":")
+        guard segments.count >= 1, !segments.contains(where: { $0.isEmpty }) else {
+            return nil
+        }
+
+        var indices: [Int] = []
+        for segment in segments {
+            // Each segment must be all digits (no sign, no letters)
+            guard segment.allSatisfy({ $0.isNumber }) else { return nil }
+            guard let idx = Int(segment), idx >= 0 else { return nil }
+            indices.append(idx)
+        }
+
+        guard !indices.isEmpty else { return nil }
+
+        return (cssPart, indices)
+    }
+
+    func parseSimpleSelector(_ raw: String) -> SimpleSelector? {
+        SimpleSelector.parse(raw)
+    }
+
     func extractBySimpleCSS(selector: String, html: String) -> [String] {
-        var normalizedSelector = selector
-        // Handle "class." format (e.g., class.leftbox)
-        if normalizedSelector.hasPrefix("class.") {
-            normalizedSelector = "." + String(normalizedSelector.dropFirst(6))
+        guard let simple = SimpleSelector.parse(selector) else {
+            return []
         }
-        // Handle "id." format (e.g., id.main)
-        if normalizedSelector.hasPrefix("id.") {
-            normalizedSelector = "#" + String(normalizedSelector.dropFirst(3))
-        }
-        
-        // Handle "tag.class" format (e.g., li.b_algo)
-        if normalizedSelector.contains(".") && !normalizedSelector.hasPrefix(".") {
-            let parts = normalizedSelector.split(separator: ".", maxSplits: 1).map(String.init)
-            if parts.count == 2 {
-                let tag = NSRegularExpression.escapedPattern(for: parts[0])
-                let cls = NSRegularExpression.escapedPattern(for: parts[1])
-                let pattern = "<\(tag)[^>]*class=[\"'][^\"']*\\b\(cls)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\(tag)>"
-                return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
-            }
-        }
-        
-        if normalizedSelector.hasPrefix(".") {
-            let cls = NSRegularExpression.escapedPattern(for: String(normalizedSelector.dropFirst()))
+        switch simple {
+        case .byClass(let className):
+            let cls = NSRegularExpression.escapedPattern(for: className)
             let pattern = "<([a-zA-Z0-9]+)[^>]*class=[\"'][^\"']*\\b\(cls)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\\1>"
             return regexGroupMatches(pattern: pattern, in: html, group: 2).map(stripHTMLTags)
-        }
-        if normalizedSelector.hasPrefix("#") {
-            let id = NSRegularExpression.escapedPattern(for: String(normalizedSelector.dropFirst()))
-            let pattern = "<([a-zA-Z0-9]+)[^>]*id=[\"']\(id)[\"'][^>]*>([\\s\\S]*?)</\\1>"
+        case .byId(let id):
+            let escaped = NSRegularExpression.escapedPattern(for: id)
+            let pattern = "<([a-zA-Z0-9]+)[^>]*id=[\"']\(escaped)[\"'][^>]*>([\\s\\S]*?)</\\1>"
             return regexGroupMatches(pattern: pattern, in: html, group: 2).map(stripHTMLTags)
+        case .byTag(let tag):
+            let escaped = NSRegularExpression.escapedPattern(for: tag)
+            let pattern = "<\(escaped)[^>]*>([\\s\\S]*?)</\(escaped)>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
+        case .byTagAndClass(let tag, let className):
+            let tagEscaped = NSRegularExpression.escapedPattern(for: tag)
+            let clsEscaped = NSRegularExpression.escapedPattern(for: className)
+            let pattern = "<\(tagEscaped)[^>]*class=[\"'][^\"']*\\b\(clsEscaped)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\(tagEscaped)>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
         }
-        let tag = NSRegularExpression.escapedPattern(for: normalizedSelector)
-        let pattern = "<\(tag)[^>]*>([\\s\\S]*?)</\(tag)>"
-        return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
     }
 
     func extractBySimpleXPath(expression: String, html: String) -> [String] {

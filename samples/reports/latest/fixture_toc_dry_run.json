@@ -1,6 +1,6 @@
 {
   "mode": "dry_run",
-  "generatedAt": "2026-04-02T12:21:00.3517761Z",
+  "generatedAt": "2026-04-19T09:44:12.7233214Z",
   "executorVerified": false,
   "execution": {
     "performed": false,
@@ -9,11 +9,11 @@
   "validation": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 0
+    "warningCount": 38
   },
   "matrix": {
-    "scope": "fixture-toc-min-regression",
-    "totalSamples": 4
+    "scope": "p1-cookie-header-login-compatibility-expansion",
+    "totalSamples": 42
   },
   "summary": {
     "totalSamples": 4,

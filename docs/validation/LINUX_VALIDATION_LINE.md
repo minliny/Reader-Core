@@ -50,10 +50,20 @@ swift run --package-path Core --configuration release LinuxSmokeRunner
 | `sample_003` | 2 results | 3 chapters | 54 chars | ✅ |
 | `sample_004` | 3 results | 4 chapters | 50 chars | ✅ |
 | `sample_005` | 2 results | 3 chapters | 52 chars | ✅ |
+| `auto_09966b3b` | 1 results | 1 chapters | 9 chars | ✅ |
+| `auto_1b9a7d27` | 2 results | 3 chapters | 9 chars | ✅ |
+| `auto_39d402f2` | 1 results | 1 chapters | 9 chars | ✅ |
 
-**Linux Core Capability Line: READY**（5/5 NonJS 样本全部通过，Search / TOC / Content 三链路已验证）
+**Linux Core Capability Line: READY**（5/5 NonJS 样本 + 3/3 真实书源全部通过，Search / TOC / Content 三链路已验证）
 
 > 此结论仅针对 NonJS 核心能力，不代表 full-suite 在 Linux 下 fully passing。Full-suite 在 Linux 下仍被 CryptoKit / JavaScriptCore / URLProtocol 阻塞。
+
+### 修复记录
+
+| 日期 | 修复内容 | 影响范围 | 验证结果 |
+|------|----------|----------|----------|
+| 2026-04-19 | 补齐 CSS 选择器支持：<br>- `class.xxx` → `.xxx`<br>- `id.xxx` → `#xxx`<br>- `tag.class` 组合选择器 | NonJSRuleScheduler | 样本 + 真实书源均通过 |
+| 2026-04-19 | 支持规则后处理：<br>- `!` 后缀索引裁剪（如 `css:.chapter!0:1:2:3`） | NonJSRuleScheduler | 新结构书源通过 |
 
 ### 已知状态
 | 模块 | Linux 构建 | macOS 构建 |

@@ -137,6 +137,93 @@ final class NonJSTagClassRegressionTests: XCTestCase {
     }
 }
 
+// MARK: - SimpleSelector grammar invalid inputs
+
+/// Tests that `parseSimpleSelector` correctly rejects invalid selector formats.
+/// These guard against fallback-to-tag behavior and ensure the grammar is strict.
+final class SimpleSelectorGrammarTests: XCTestCase {
+
+    private let fixtureHTML = """
+        <div class="item">Item 1</div>
+        <div id="main">Main</div>
+        <span class="a b">Span AB</span>
+        """
+
+    private func extractMatches(_ selector: String) -> [String] {
+        let scheduler = NonJSRuleScheduler()
+        let result = (try? scheduler.evaluate(
+            rule: "css:\(selector)",
+            data: Data(fixtureHTML.utf8),
+            flow: .content,
+            source: BookSource(
+                bookSourceName: "grammar-fixture",
+                bookSourceUrl: "http://fixture.local",
+                searchUrl: "http://fixture.local/s/{{key}}",
+                ruleSearch: "css:div",
+                ruleToc: "css:a",
+                ruleContent: "css:\(selector)"
+            )
+        )) ?? []
+        return result
+    }
+
+    // ── Invalid: tag#id (not supported) ────────────────────────────────────────
+
+    func testTagHashSelectorIsRejected() {
+        let results = extractMatches("div#main")
+        XCTAssertTrue(results.isEmpty, "tag#id is not in grammar; selector should not match")
+    }
+
+    // ── Invalid: .a.b (multiple classes) ───────────────────────────────────────
+
+    func testDoubleDotSelectorIsRejected() {
+        let results = extractMatches(".a.b")
+        XCTAssertTrue(results.isEmpty, ".a.b is not in grammar; should not match")
+    }
+
+    // ── Invalid: descendant selector (space) ───────────────────────────────────
+
+    func testDescendantSelectorIsRejected() {
+        let results = extractMatches("div .item")
+        XCTAssertTrue(results.isEmpty, "descendant selector (space) is not in grammar")
+    }
+
+    // ── Invalid: double dot ────────────────────────────────────────────────────
+
+    func testDoubleDotAfterTagIsRejected() {
+        let results = extractMatches("div..item")
+        XCTAssertTrue(results.isEmpty, "div..item has empty class; should not match")
+    }
+
+    // ── Invalid: trailing dot ──────────────────────────────────────────────────
+
+    func testTrailingDotIsRejected() {
+        let results = extractMatches("div.")
+        XCTAssertTrue(results.isEmpty, "div. has empty class; should not match")
+    }
+
+    // ── Invalid: empty selector ────────────────────────────────────────────────
+
+    func testEmptySelectorIsRejected() {
+        let results = extractMatches("")
+        XCTAssertTrue(results.isEmpty, "empty selector should produce no matches")
+    }
+
+    // ── Invalid: hash-only ─────────────────────────────────────────────────────
+
+    func testHashOnlyIsRejected() {
+        let results = extractMatches("#")
+        XCTAssertTrue(results.isEmpty, "# alone is not a valid selector")
+    }
+
+    // ── Invalid: dot-only ─────────────────────────────────────────────────────
+
+    func testDotOnlyIsRejected() {
+        let results = extractMatches(".")
+        XCTAssertTrue(results.isEmpty, ". alone is not a valid selector")
+    }
+}
+
 // MARK: - ! index-trimming tests
 
 /// Regression tests for the `!` index-trimming suffix in applyCSS.

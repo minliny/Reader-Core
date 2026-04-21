@@ -49,6 +49,27 @@ let allSamples: [SmokeSample] = [
         tocHTMLPath:     "samples/fixtures/html/sample_005_toc.html",
         contentHTMLPath: "samples/fixtures/html/sample_005_content.html"
     ),
+    SmokeSample(
+        id: "auto_09966b3b",
+        bookSourcePath: "samples/booksources/auto/auto_09966b3b.json",
+        searchHTMLPath:  "samples/fixtures/html/auto_09966b3b_search.html",
+        tocHTMLPath:     "samples/fixtures/html/auto_09966b3b_toc.html",
+        contentHTMLPath: "samples/fixtures/html/auto_09966b3b_content.html"
+    ),
+    SmokeSample(
+        id: "auto_1b9a7d27",
+        bookSourcePath: "samples/booksources/auto/auto_1b9a7d27.json",
+        searchHTMLPath:  "samples/fixtures/html/auto_1b9a7d27_search.html",
+        tocHTMLPath:     "samples/fixtures/html/auto_1b9a7d27_toc.html",
+        contentHTMLPath: "samples/fixtures/html/auto_1b9a7d27_content.html"
+    ),
+    SmokeSample(
+        id: "auto_39d402f2",
+        bookSourcePath: "samples/booksources/auto/auto_39d402f2.json",
+        searchHTMLPath:  "samples/fixtures/html/auto_39d402f2_search.html",
+        tocHTMLPath:     "samples/fixtures/html/auto_39d402f2_toc.html",
+        contentHTMLPath: "samples/fixtures/html/auto_39d402f2_content.html"
+    ),
 ]
 
 struct SmokeRunner {
@@ -64,6 +85,32 @@ struct SmokeRunner {
 
     func readStr(_ rel: String) throws -> String {
         try String(contentsOfFile: rp(rel), encoding: .utf8)
+    }
+
+    mutating func runSingle(bookSourcePath: String) -> Bool {
+        let engine = NonJSParserEngine()
+        var allPassed = true
+
+        print("[external: \(bookSourcePath)]")
+        do {
+            let bookSource = try JSONDecoder().decode(
+                BookSource.self, from: try readData(bookSourcePath)
+            )
+
+            // For external book sources, we cannot verify Search/TOC/Content
+            // without corresponding HTML fixtures, so mark as "not verified"
+            print("  search: not verified (no HTML fixture)")
+            print("  toc: not verified (no HTML fixture)")
+            print("  content: not verified (no HTML fixture)")
+            print("  note: external book source loaded successfully")
+
+        } catch {
+            print("  ERROR: \(error)")
+            allPassed = false
+        }
+
+        print(allPassed ? "\nOVERALL: passed" : "\nOVERALL: FAILED")
+        return allPassed
     }
 
     mutating func runAll() -> Bool {

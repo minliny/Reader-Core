@@ -1,8 +1,8 @@
 reportId: "fixture_toc_min_regression_v1"
-generatedAt: "2026-04-02T12:21:00Z"
+generatedAt: "2026-04-19T09:44:12Z"
 scope: "fixture_toc_parser_contract"
 run:
-  runId: "fixture_toc_exec_2cc0645babdd4283b09b7fbeae2880de"
+  runId: "fixture_toc_exec_8a02ea821d9f4e4895f75cf0dfb185ef"
   mode: "dry_structure_only"
   executorVerified: false
   note: "swift-missing in current host; execution result pending CI or macOS runner."
