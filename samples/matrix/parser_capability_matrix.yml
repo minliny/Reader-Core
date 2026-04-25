@@ -1,0 +1,190 @@
+parser:
+  version: V2
+  status: stable_baseline
+  source_of_truth:
+    positive_samples_root: samples/real_world/parser_cases
+    positive_sample_count: 20
+    negative_samples_root: samples/real_world/parser_negative_cases
+    negative_sample_count: 6
+    test_files:
+      - Core/Tests/ReaderCoreParserTests/RealWorldParserCasesTests.swift
+      - Core/Tests/ReaderCoreParserTests/RealWorldParserCasesExtendedTests.swift
+      - Core/Tests/ReaderCoreParserTests/ParserNegativeBoundaryTests.swift
+
+  selectors:
+    supported:
+      - name: ".class"
+        status: supported
+        example_selector: ".article-title"
+        sample_cases: ["case_001", "case_007", "case_011", "case_015", "case_020"]
+        primary_test_case: "testCase001_dotClass_multipleHits"
+        notes: "Matches all elements carrying the named class. Works with multi-class attributes via \\b word-boundary regex. Class names with hyphens (e.g. .search-result) also supported."
+
+      - name: "#id"
+        status: supported
+        example_selector: "#chapter-content"
+        sample_cases: ["case_002", "case_008", "case_012", "case_017"]
+        primary_test_case: "testCase002_hashId_singleHit"
+        notes: "Matches the single element whose id attribute equals the given value. IDs with hyphens (e.g. #main-content) supported."
+
+      - name: "tag"
+        status: supported
+        example_selector: "p"
+        sample_cases: ["case_003", "case_009", "case_013", "case_018"]
+        primary_test_case: "testCase003_tag_threeHits"
+        notes: "Matches all elements with the given tag name. Case-sensitive regex match against literal tag. Works for inline tags (td, h1, h3) and block tags (p)."
+
+      - name: "tag.class"
+        status: supported
+        example_selector: "li.searchresult"
+        sample_cases: ["case_004", "case_006", "case_010", "case_014", "case_016", "case_019"]
+        primary_test_case: "testCase004_tagDotClass_filtersNonMatchingTag"
+        notes: "Compound selector: matches elements of the given tag that also carry the given class. Elements with the class on a different tag are excluded. Works for any tag: div, span, p, tr, a, etc."
+
+      - name: ".class (multi-class boundary)"
+        status: supported
+        example_selector: ".book-item"
+        sample_cases: ["case_005"]
+        primary_test_case: "testCase005_boundary_multiClassElement_matchesWhenTargetClassPresent"
+        notes: "Boundary variant of .class: target element has multiple space-separated classes. Selector fires when the named class appears anywhere in the class attribute."
+
+    unsupported:
+      - name: "tag#id"
+        status: unsupported
+        example_selector: "div#main"
+        negative_sample_case: "negative_case_001"
+        negative_test_case: "testNegative001_tagHashId_returnsZeroMatches"
+        verified_behavior: "returns 0 matches"
+        reason: "Rejected by the V2 strict simple-selector grammar. The selector is not treated as tag+id and must not fall back to a broader match."
+        notes: "Out of scope for V2 stable baseline. V3 planning may add richer selector support through evidence-bound samples/tests/matrix updates."
+
+      - name: "descendant selector"
+        status: unsupported
+        example_selector: "div .title"
+        negative_sample_case: "negative_case_002"
+        negative_test_case: "testNegative002_descendantSelector_returnsZeroMatches"
+        verified_behavior: "returns 0 matches"
+        reason: "Rejected by the V2 strict simple-selector grammar because descendant selectors contain whitespace and require tree-aware traversal."
+        notes: "Out of scope for V2 stable baseline. Would require a true tree parser (V3+)."
+
+      - name: "direct child selector"
+        status: unsupported
+        example_selector: "div > span"
+        negative_sample_case: "negative_case_003"
+        negative_test_case: "testNegative003_directChildSelector_returnsZeroMatches"
+        verified_behavior: "returns 0 matches"
+        reason: "Rejected by the V2 strict simple-selector grammar because child combinators are not part of the V2 subset."
+        notes: "Out of scope for V2 stable baseline. Requires nesting-aware traversal (V3+)."
+
+      - name: "attribute selector"
+        status: unsupported
+        example_selector: "a[href]"
+        negative_sample_case: "negative_case_004"
+        negative_test_case: "testNegative004_attributeSelector_returnsZeroMatches"
+        verified_behavior: "returns 0 matches"
+        reason: "Rejected by the V2 strict simple-selector grammar because bracketed attribute selectors are not part of the V2 subset."
+        notes: "Out of scope for V2 CSS baseline. XPath /@attr form exists for attribute extraction but is a separate pipeline."
+
+      - name: "multiple selector group"
+        status: unsupported
+        example_selector: "div, span"
+        negative_sample_case: "negative_case_005"
+        negative_test_case: "testNegative005_multipleSelectorGroup_returnsZeroMatches"
+        verified_behavior: "returns 0 matches"
+        reason: "Rejected by the V2 strict simple-selector grammar because selector groups are not split or expanded in V2."
+        notes: "Out of scope for V2 stable baseline. Each extractBySimpleCSS call handles exactly one selector."
+
+      - name: "pseudo-class"
+        status: unsupported
+        example_selector: "li:first-child"
+        negative_sample_case: "negative_case_006"
+        negative_test_case: "testNegative006_pseudoClass_returnsZeroMatches"
+        verified_behavior: "returns 0 matches"
+        reason: "Rejected by the V2 strict simple-selector grammar because pseudo-classes require selector semantics outside the V2 subset."
+        notes: "Out of scope for V2 stable baseline. Position-based selection requires DOM tree awareness (V3+)."
+
+baseline_policy:
+  keep_v2_as_baseline: true
+  v3_trigger_rule: "V3 planning is active via docs/parser/PARSER_V3_CAPABILITY_MODEL.md; implementation must proceed only through evidence-bound samples, tests, and matrix/status updates."
+  rationale: "V2 remains the stable runtime baseline for the four verified forms (.class, #id, tag, tag.class). V3 may extend V2 for proven adapter or selector gaps, but must not rewrite or weaken the verified V2 subset."
+  decision_gate: "A new selector form is added to 'supported' only after: (1) a real or clean-room representative rule requires it, (2) a sample case is created, (3) a passing test is written, and (4) this matrix/status documentation is updated."
+
+v3_first_slice:
+  name: "group_consistency_single_key_constraint"
+  status: "implemented_and_tested"
+  scope:
+    rule_type: "single_key_unique"
+    single_key_only: true
+    stable_issue_order: true
+  sample_bindings:
+    - "gc_single_key_duplicate_hit"
+    - "gc_single_key_unique_pass"
+    - "gc_single_key_missing_key_reject"
+    - "gc_single_key_invalid_rule_reject"
+    - "gc_single_key_stable_ordering"
+    - "gc_single_key_multiple_duplicate_groups"
+  non_goals:
+    - "multi-key_or_composite_key"
+    - "topology_inference"
+    - "facade_expansion"
+    - "persistence_expansion"
+
+v3_second_slice:
+  name: "group_consistency_multi_key_pair_exact"
+  status: "implemented_and_tested"
+  scope:
+    rule_type: "multi_key_pair_unique"
+    exact_pair_only: true
+    keys_count_must_equal_2: true
+    stable_issue_order: true
+  sample_bindings:
+    - "gc_pair_duplicate_hit"
+    - "gc_pair_unique_pass"
+    - "gc_pair_missing_one_key_reject"
+    - "gc_pair_invalid_one_key_reject"
+    - "gc_pair_invalid_three_keys_reject"
+    - "gc_pair_duplicate_key_names_reject"
+    - "gc_pair_stable_ordering"
+    - "gc_pair_multiple_duplicate_tuple_groups"
+  reject_taxonomy:
+    failureType: "RULE_INVALID"
+    no_new_failure_taxonomy: true
+  non_goals:
+    - "single_key_support"
+    - "three_or_more_keys"
+    - "dynamic_key_count"
+    - "topology_inference"
+    - "comparison_strategies"
+    - "facade_expansion"
+    - "persistence_expansion"
+
+v3_third_slice:
+  name: "group_consistency_multi_key_triplet_exact"
+  status: "implemented_and_tested"
+  scope:
+    rule_type: "multi_key_triplet_unique"
+    exact_triplet_only: true
+    keys_count_must_equal_3: true
+    stable_issue_order: true
+  sample_bindings:
+    - "gc_triplet_duplicate_hit"
+    - "gc_triplet_unique_pass"
+    - "gc_triplet_missing_one_key_reject"
+    - "gc_triplet_invalid_two_keys_reject"
+    - "gc_triplet_invalid_four_keys_reject"
+    - "gc_triplet_duplicate_key_names_reject"
+    - "gc_triplet_stable_ordering"
+    - "gc_triplet_multiple_duplicate_tuple_groups"
+    - "gc_triplet_key_order_sensitive"
+  reject_taxonomy:
+    failureType: "RULE_INVALID"
+    no_new_failure_taxonomy: true
+  non_goals:
+    - "single_key_support"
+    - "pair_key_support"
+    - "four_or_more_keys"
+    - "dynamic_key_count"
+    - "topology_inference"
+    - "comparison_strategies"
+    - "facade_expansion"
+    - "persistence_expansion"
