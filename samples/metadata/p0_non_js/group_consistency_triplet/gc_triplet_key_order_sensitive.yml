@@ -1,0 +1,35 @@
+sampleId: "gc_triplet_key_order_sensitive"
+sampleFile: "samples/fixtures/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: V3_ACTIVE
+stage: "v3_third_slice"
+flow: "group_consistency_triplet"
+title: "Group consistency triplet key order sensitive"
+featureTags:
+  - "group_consistency"
+  - "multi_key_triplet_unique"
+  - "key_order_sensitive"
+ruleTypes:
+  - "multi_key_triplet_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+  content: null
+knownFailureType: null
+owner: "core-parser"
+notes: "V3 third-slice sample. verifies tuple preserves key order from rule.keys."
+

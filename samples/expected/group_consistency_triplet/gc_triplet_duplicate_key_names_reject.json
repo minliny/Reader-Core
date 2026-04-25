@@ -1,0 +1,12 @@
+{
+  "rejected": true,
+  "checked_keys": [
+    "device_name",
+    "device_name",
+    "region"
+  ],
+  "error": {
+    "code": "RULE_INVALID",
+    "message": "rule.keys must contain 3 distinct keys; got duplicate key 'device_name'"
+  }
+}

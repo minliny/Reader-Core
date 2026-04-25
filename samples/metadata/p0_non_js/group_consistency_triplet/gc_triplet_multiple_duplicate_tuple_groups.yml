@@ -1,0 +1,35 @@
+sampleId: "gc_triplet_multiple_duplicate_tuple_groups"
+sampleFile: "samples/fixtures/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: V3_ACTIVE
+stage: "v3_third_slice"
+flow: "group_consistency_triplet"
+title: "Group consistency triplet multiple duplicate tuple groups"
+featureTags:
+  - "group_consistency"
+  - "multi_key_triplet_unique"
+  - "multiple_duplicate_tuple_groups"
+ruleTypes:
+  - "multi_key_triplet_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+  content: null
+knownFailureType: null
+owner: "core-parser"
+notes: "V3 third-slice sample. multiple duplicated triplet tuples aggregated."
+
