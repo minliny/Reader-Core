@@ -1,0 +1,87 @@
+{
+  "pass": false,
+  "checked_keys": [
+    "device_name",
+    "os_version",
+    "region"
+  ],
+  "checked_count": 6,
+  "issue_count": 3,
+  "issues": [
+    {
+      "code": "GROUP_DUPLICATE_MULTI_KEY_TRIPLET",
+      "keys": [
+        "device_name",
+        "os_version",
+        "region"
+      ],
+      "values": [
+        "alpha",
+        "1.0",
+        "us"
+      ],
+      "message": "duplicate tuple ['alpha','1.0','us'] for keys ['device_name','os_version','region']",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-001",
+          "r-003"
+        ],
+        "positions": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "code": "GROUP_DUPLICATE_MULTI_KEY_TRIPLET",
+      "keys": [
+        "device_name",
+        "os_version",
+        "region"
+      ],
+      "values": [
+        "beta",
+        "2.0",
+        "eu"
+      ],
+      "message": "duplicate tuple ['beta','2.0','eu'] for keys ['device_name','os_version','region']",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-002",
+          "r-004"
+        ],
+        "positions": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "code": "GROUP_DUPLICATE_MULTI_KEY_TRIPLET",
+      "keys": [
+        "device_name",
+        "os_version",
+        "region"
+      ],
+      "values": [
+        "gamma",
+        "3.0",
+        "ap"
+      ],
+      "message": "duplicate tuple ['gamma','3.0','ap'] for keys ['device_name','os_version','region']",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-005",
+          "r-006"
+        ],
+        "positions": [
+          4,
+          5
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+sampleId: "gc_triplet_duplicate_key_names_reject"
+sampleFile: "samples/fixtures/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: V3_ACTIVE
+stage: "v3_third_slice"
+flow: "group_consistency_triplet"
+title: "Group consistency triplet duplicate key names reject"
+featureTags:
+  - "group_consistency"
+  - "multi_key_triplet_unique"
+  - "duplicate_key_names_reject"
+ruleTypes:
+  - "multi_key_triplet_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+  content: null
+knownFailureType: "RULE_INVALID"
+owner: "core-parser"
+notes: "V3 third-slice sample. duplicate key names in rule.keys rejected."
+

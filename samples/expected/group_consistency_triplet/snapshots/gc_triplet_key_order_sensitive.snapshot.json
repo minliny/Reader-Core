@@ -1,0 +1,36 @@
+{
+  "pass": false,
+  "checked_keys": [
+    "region",
+    "device_name",
+    "os_version"
+  ],
+  "checked_count": 3,
+  "issue_count": 1,
+  "issues": [
+    {
+      "code": "GROUP_DUPLICATE_MULTI_KEY_TRIPLET",
+      "keys": [
+        "region",
+        "device_name",
+        "os_version"
+      ],
+      "values": [
+        "us",
+        "alpha",
+        "1.0"
+      ],
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-001",
+          "r-003"
+        ],
+        "positions": [
+          0,
+          2
+        ]
+      }
+    }
+  ]
+}

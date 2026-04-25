@@ -1,0 +1,31 @@
+{
+  "sample_id": "gc_triplet_key_order_sensitive",
+  "rule": {
+    "type": "multi_key_triplet_unique",
+    "keys": [
+      "region",
+      "device_name",
+      "os_version"
+    ]
+  },
+  "records": [
+    {
+      "record_id": "r-001",
+      "device_name": "alpha",
+      "os_version": "1.0",
+      "region": "us"
+    },
+    {
+      "record_id": "r-002",
+      "device_name": "beta",
+      "os_version": "2.0",
+      "region": "eu"
+    },
+    {
+      "record_id": "r-003",
+      "device_name": "alpha",
+      "os_version": "1.0",
+      "region": "us"
+    }
+  ]
+}
