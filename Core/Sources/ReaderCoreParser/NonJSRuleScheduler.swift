@@ -167,7 +167,8 @@ private extension NonJSRuleScheduler {
             if part.lowercased().hasPrefix("js:") || part.lowercased().contains("javascript") {
                 return RuleStage(kind: .js, payload: part, raw: part)
             }
-            return RuleStage(kind: .unsupported, payload: part, raw: part)
+            // Treat all other rules as CSS selectors (including those with attribute extraction syntax)
+            return RuleStage(kind: .css, payload: part, raw: part)
         }
     }
 
@@ -205,6 +206,17 @@ private extension NonJSRuleScheduler {
             throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_css_selector", message: "CSS selector is empty.")
         }
         
+        // Parse attribute extraction syntax: selector@attr
+        let (baseSelector, attribute) = parseAttributeSyntax(fullSelector)
+        if let attribute = attribute {
+            // Validate attribute
+            let validAttributes = ["href", "src", "content", "text", "html"]
+            if !validAttributes.contains(attribute) {
+                throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_attribute", message: "Unsupported attribute: \(attribute).")
+            }
+            fullSelector = baseSelector
+        }
+        
         // Strict grammar: !<index>:<index>:... where each index is a non-negative integer.
         // Grammar: trimming-suffix ::= "!" index-list
         // index-list ::= index (":" index)+
@@ -217,7 +229,11 @@ private extension NonJSRuleScheduler {
 
         var output: [String] = []
         for input in inputs {
-            output.append(contentsOf: extractBySimpleCSS(selector: fullSelector, html: input))
+            if let attribute = attribute {
+                output.append(contentsOf: extractAttributeBySimpleCSS(selector: fullSelector, attribute: attribute, html: input))
+            } else {
+                output.append(contentsOf: extractBySimpleCSS(selector: fullSelector, html: input))
+            }
         }
         // Apply strict-grammar trimming if suffix was valid.
         if let trimming = trimming {
@@ -231,6 +247,14 @@ private extension NonJSRuleScheduler {
         }
         
         return output
+    }
+    
+    func parseAttributeSyntax(_ selector: String) -> (String, String?) {
+        let parts = selector.components(separatedBy: "@")
+        if parts.count == 2 {
+            return (parts[0].trimmingCharacters(in: .whitespaces), parts[1].trimmingCharacters(in: .whitespaces))
+        }
+        return (selector, nil)
     }
 
     func applyXPath(_ expr: String, on inputs: [String], flow: ParseFlow) throws -> [String] {
@@ -381,6 +405,36 @@ private extension NonJSRuleScheduler {
             let clsEscaped = NSRegularExpression.escapedPattern(for: className)
             let pattern = "<\(tagEscaped)[^>]*class=[\"'][^\"']*\\b\(clsEscaped)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\(tagEscaped)>"
             return regexGroupMatches(pattern: pattern, in: html, group: 1).map(stripHTMLTags)
+        }
+    }
+    
+    func extractAttributeBySimpleCSS(selector: String, attribute: String, html: String) -> [String] {
+        guard let simple = SimpleSelector.parse(selector) else {
+            return []
+        }
+        
+        switch simple {
+        case .byClass(let className):
+            let cls = NSRegularExpression.escapedPattern(for: className)
+            let attr = NSRegularExpression.escapedPattern(for: attribute)
+            let pattern = "<([a-zA-Z0-9]+)[^>]*class=[\"'][^\"']*\\b\(cls)\\b[^\"']*[\"'][^>]*\(attr)=[\"']([^\"']+)[\"'][^>]*>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 2)
+        case .byId(let id):
+            let escaped = NSRegularExpression.escapedPattern(for: id)
+            let attr = NSRegularExpression.escapedPattern(for: attribute)
+            let pattern = "<([a-zA-Z0-9]+)[^>]*id=[\"']\(escaped)[\"'][^>]*\(attr)=[\"']([^\"']+)[\"'][^>]*>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 2)
+        case .byTag(let tag):
+            let escaped = NSRegularExpression.escapedPattern(for: tag)
+            let attr = NSRegularExpression.escapedPattern(for: attribute)
+            let pattern = "<\(escaped)[^>]*\(attr)=[\"']([^\"']+)[\"'][^>]*>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 1)
+        case .byTagAndClass(let tag, let className):
+            let tagEscaped = NSRegularExpression.escapedPattern(for: tag)
+            let clsEscaped = NSRegularExpression.escapedPattern(for: className)
+            let attr = NSRegularExpression.escapedPattern(for: attribute)
+            let pattern = "<\(tagEscaped)[^>]*class=[\"'][^\"']*\\b\(clsEscaped)\\b[^\"']*[\"'][^>]*\(attr)=[\"']([^\"']+)[\"'][^>]*>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 1)
         }
     }
 

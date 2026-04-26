@@ -188,3 +188,45 @@ v3_third_slice:
     - "comparison_strategies"
     - "facade_expansion"
     - "persistence_expansion"
+
+v3_e2e_slice:
+  name: "non_js_real_source_e2e_case_001"
+  status: "implemented_and_tested"
+  scope:
+    rule_type: "non_js_real_source"
+    non_js_only: true
+    no_login_required: true
+    covered_stages:
+      - search
+      - toc
+      - content
+  sample_bindings:
+    - "non_js_real_source_001"
+  non_goals:
+    - "js_execution"
+    - "login_support"
+    - "dynamic_keys"
+    - "facade_expansion"
+    - "persistence_expansion"
+
+v3_attribute_extraction_minimal:
+  status: "partial"
+  scope:
+    supported:
+      - selector@href
+      - selector@src
+      - selector@content
+    selector_base:
+      - .class
+      - #id
+      - tag
+      - tag.class
+    unsupported:
+      - descendant selector
+      - child selector
+      - attribute selector syntax
+      - pseudo selector
+      - @js
+      - regex
+  tests:
+    - AttributeExtractionMinimalTests
