@@ -1,5 +1,33 @@
 # First Real Pass Case Plan
 
+## Status (2026-04-27)
+
+```
+FIRST_REAL_PASS_CASE = YES
+case_022 = PASS_WITH_KNOWN_DETAIL_FIELD_ISSUES
+marker = FIRST_REAL_PASS_CASE_ESTABLISHED
+```
+
+- **Completed case**: case_022 (sudugu.org)
+- **Test**: `swift test --filter Case022FirstRealPassTests` → PASS
+- **Real evidence**:
+  - detail: tocUrl 可提取
+  - toc: 659 chapters
+  - content: 3465 chars
+  - 真实 HTML（curl，原样字节）+ 真实 Parser + 真实站点
+- **Plan phases marked complete**: Site Selection (sudugu.org), HTML Collection (curl 原样落盘), Rule Creation (V2+V3), Pipeline Execution (3/3 stage PASS), Documentation (README/metadata/report)
+- **Known issues left in case_022 (本轮不修)**:
+  - detail.bookName 含字数前缀
+  - detail.author 为空
+  - toc.chapterTitle == chapterURL（单规则无法输出 title|url 配对）
+- **NOT claimed**:
+  - `NON_JS_REAL_WORLD_REGRESSION_BASELINE_READY`
+  - `NON_JS_REAL_WORLD_REGRESSION_EXPANDED`
+
+下一步建议参见本文末尾「Next Steps After Success」与 `samples/real_world/non_js/regression_report.md` §9。
+
+---
+
 ## Objective
 
 Establish a **FIRST_REAL_PASS_CASE** for the non-JS parser by successfully parsing a real-world book source from detail page to content page using only current V3 capabilities.

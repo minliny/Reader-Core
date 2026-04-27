@@ -1,0 +1,15 @@
+{
+  "bookSourceName": "速读谷",
+  "bookSourceUrl": "https://www.sudugu.org/",
+  "bookSourceGroup": "real_world_non_js",
+  "bookSourceType": 0,
+  "searchUrl": "/search?keyword={{key}}&page={{page}}",
+  "ruleSearch": "css:.item",
+  "ruleBookInfo": "css:h1",
+  "ruleToc": "css:#list a@href",
+  "ruleContent": "css:.con",
+  "enabled": true,
+  "enabledExplore": false,
+  "enabledCookieJar": false,
+  "header": {}
+}

@@ -1,0 +1,57 @@
+---
+id: case_022
+name: 速读谷
+bookSourceUrl: https://www.sudugu.org/
+bookUrl: https://www.sudugu.org/51/
+contentUrl: https://www.sudugu.org/51/3612068.html
+language: zh
+category: non_js
+status: PASS_WITH_KNOWN_DETAIL_FIELD_ISSUES
+priority: high
+difficulty: medium
+fixture_origin: real
+tags:
+  - static_html
+  - no_js
+  - simple_selector
+  - real_world
+  - first_real_pass_case
+metadata:
+  source: real_fetch_curl
+  created_at: 2026-04-26
+  last_updated: 2026-04-27
+  fetched_at: 2026-04-27
+verification:
+  marker: FIRST_REAL_PASS_CASE_ESTABLISHED
+  test_target: Core/Tests/ReaderCoreParserTests/Case022FirstRealPassTests.swift
+  test_filter: Case022FirstRealPassTests
+  result:
+    detail:
+      status: PASS
+      tocUrl_extracted: true
+      known_issue: bookName 含字数前缀 (h1 内嵌 <i>)，author 字段未提取（不在 h1 内）
+    toc:
+      status: PASS
+      chapter_count: 659
+      known_issue: chapterTitle == chapterURL，因为单规则无法同时输出 title|url 配对
+    content:
+      status: PASS
+      content_length: 3465
+  do_not_apply:
+    - parser_modification
+    - author_or_name_field_polishing
+expected:
+  detail:
+    - bookName
+    - author
+    - tocUrl
+  toc:
+    - chapterList
+  content:
+    - title
+    - content
+pipeline:
+  steps:
+    - parseDetail(detail.html)
+    - parseToc(detail.tocUrl)
+    - parseContent(toc.selectedChapterUrl)
