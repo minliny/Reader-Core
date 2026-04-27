@@ -1,0 +1,41 @@
+dataset: REAL_WORLD_BOOKSOURCE_SNAPSHOT
+status: REAL_WORLD_BOOKSOURCE_SNAPSHOT_READY,RAW_CACHE_ONLY
+source_api_base: https://shuyuan-api.yiove.com/import/book-sources
+api_behavior: cumulative_intervals  # API returns cumulative data, not paginated slices
+captured_pages:
+  - file: page_001.json
+    range: 1-20
+    count: 20
+  - file: page_002.json
+    range: 21-40
+    count: 40
+  - file: page_003.json
+    range: 41-60
+    count: 60
+  - file: page_004.json
+    range: 61-80
+    count: 80
+  - file: page_005.json
+    range: 81-100
+    count: 100
+total_records: 300
+unique_records: 295
+duplicate_records: 5
+aggregate_file: all_sources.json
+schema_summary_file: schema_summary.json
+usage_policy:
+  - raw snapshot only
+  - do not use as regression fixture
+  - do not generate expected
+  - do not mark pass/fail
+  - reserved for Parser V3 batch analysis
+verification:
+  json_valid: true
+  arrays_valid: true
+  uniqueness_checked: true
+  disjoint_pages_confirmed: false
+  cumulative_behavior_confirmed: true
+next_steps:
+  - Parser V3 attribute extraction minimal slice
+  - Batch analysis using all_sources.json (295 unique sources)
+  - Field coverage modeling

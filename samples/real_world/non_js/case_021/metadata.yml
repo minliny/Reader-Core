@@ -1,0 +1,23 @@
+id: case_021
+source_name: snapd.net
+source_url: https://m.snapd.net/read/114355/
+non_js_only: true
+requires_login: false
+uses_js: false
+covered_stages:
+  - detail
+parser_features_used:
+  - simple_selector_class
+  - og_meta_tags
+known_gaps:
+  - toc_redirected_to_verify
+  - content_redirected_to_verify
+  - search_page_async
+fixture_origin: real
+verification_status: partial
+verification_commands:
+  - curl -L --compressed -A "Mozilla/5.0" https://m.snapd.net/read/114355/
+failure_taxonomy:
+  - anti_scraping_response
+  - missing_search_html
+notes: "detail page is real parseable HTML; toc/content return 302 redirect to /user/verify.html - anti-scraping protection"

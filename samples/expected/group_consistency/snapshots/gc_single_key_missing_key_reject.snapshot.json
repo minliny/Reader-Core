@@ -1,0 +1,8 @@
+{
+  "rejected": true,
+  "checked_key": "device_name",
+  "error": {
+    "code": "GROUP_CONSISTENCY_INVALID_INPUT",
+    "message_prefix": "missing required key 'device_name'"
+  }
+}

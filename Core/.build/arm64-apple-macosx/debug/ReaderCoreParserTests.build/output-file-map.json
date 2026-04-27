@@ -1,0 +1,208 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/AttributeExtractionMinimalTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/AttributeExtractionMinimalTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/AttributeExtractionMinimalTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/AttributeExtractionMinimalTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/AttributeExtractionMinimalTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/AttributeExtractionMinimalTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/CSSExecutorTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/CSSExecutorTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/CSSExecutorTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/CSSExecutorTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/CSSExecutorTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/CSSExecutorTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/Case022FirstRealPassFreezeGateTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassFreezeGateTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassFreezeGateTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassFreezeGateTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassFreezeGateTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassFreezeGateTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/Case022FirstRealPassTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/Case022FirstRealPassTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/DescendantSelectorMinimalTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/DescendantSelectorMinimalTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/DescendantSelectorMinimalTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/DescendantSelectorMinimalTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/DescendantSelectorMinimalTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/DescendantSelectorMinimalTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/FixtureTocParserTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/FixtureTocParserTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/FixtureTocParserTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/FixtureTocParserTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/FixtureTocParserTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/FixtureTocParserTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/Fixtures/HTMLFixtures.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLFixtures.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLFixtures.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLFixtures~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLFixtures.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLFixtures.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/Fixtures/TocFixtures.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocFixtures.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocFixtures.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocFixtures~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocFixtures.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocFixtures.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/GroupConsistencyPairExactFixtureTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactFixtureTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactFixtureTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactFixtureTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactFixtureTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactFixtureTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/GroupConsistencyPairExactSnapshotTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactSnapshotTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactSnapshotTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactSnapshotTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactSnapshotTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyPairExactSnapshotTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/GroupConsistencySingleKeyFixtureTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeyFixtureTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeyFixtureTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeyFixtureTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeyFixtureTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeyFixtureTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/GroupConsistencySingleKeySnapshotTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeySnapshotTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeySnapshotTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeySnapshotTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeySnapshotTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencySingleKeySnapshotTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/GroupConsistencyTripletExactFixtureTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactFixtureTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactFixtureTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactFixtureTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactFixtureTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactFixtureTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/GroupConsistencyTripletExactSnapshotTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactSnapshotTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactSnapshotTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactSnapshotTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactSnapshotTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/GroupConsistencyTripletExactSnapshotTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/HTMLParserTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLParserTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLParserTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLParserTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLParserTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/HTMLParserTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/JSIntegrationTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/JSIntegrationTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/JSIntegrationTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/JSIntegrationTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/JSIntegrationTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/JSIntegrationTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/NonJSParserEngineTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSParserEngineTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSParserEngineTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSParserEngineTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSParserEngineTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSParserEngineTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/NonJSRealWorldRegressionFreezeGateTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSRealWorldRegressionFreezeGateTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSRealWorldRegressionFreezeGateTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSRealWorldRegressionFreezeGateTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSRealWorldRegressionFreezeGateTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSRealWorldRegressionFreezeGateTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/NonJSSample004RegressionTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample004RegressionTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample004RegressionTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample004RegressionTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample004RegressionTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample004RegressionTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/NonJSSample005RegressionTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample005RegressionTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample005RegressionTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample005RegressionTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample005RegressionTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSSample005RegressionTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/NonJSTagClassRegressionTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSTagClassRegressionTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSTagClassRegressionTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSTagClassRegressionTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSTagClassRegressionTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/NonJSTagClassRegressionTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/ParserNegativeBoundaryTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserNegativeBoundaryTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserNegativeBoundaryTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserNegativeBoundaryTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserNegativeBoundaryTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserNegativeBoundaryTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/ParserPublicAPITests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserPublicAPITests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserPublicAPITests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserPublicAPITests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserPublicAPITests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/ParserPublicAPITests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/RealWorldNonJSE2ERegressionTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldNonJSE2ERegressionTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldNonJSE2ERegressionTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldNonJSE2ERegressionTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldNonJSE2ERegressionTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldNonJSE2ERegressionTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/RealWorldParserCasesExtendedTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesExtendedTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesExtendedTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesExtendedTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesExtendedTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesExtendedTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/RealWorldParserCasesTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/RealWorldParserCasesTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/SimpleSelectorContractTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/SimpleSelectorContractTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/SimpleSelectorContractTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/SimpleSelectorContractTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/SimpleSelectorContractTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/SimpleSelectorContractTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/TextFilterMinimalTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TextFilterMinimalTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TextFilterMinimalTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TextFilterMinimalTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TextFilterMinimalTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TextFilterMinimalTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreParserTests/TocParserTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocParserTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocParserTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocParserTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocParserTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreParserTests.build/TocParserTests.dia"
+  }
+}

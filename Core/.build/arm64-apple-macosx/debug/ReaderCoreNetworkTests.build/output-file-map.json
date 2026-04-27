@@ -1,0 +1,68 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/BasicCookieJarTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BasicCookieJarTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BasicCookieJarTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BasicCookieJarTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BasicCookieJarTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BasicCookieJarTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/BookSourceRequestBuilderTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BookSourceRequestBuilderTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BookSourceRequestBuilderTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BookSourceRequestBuilderTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BookSourceRequestBuilderTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/BookSourceRequestBuilderTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/ErrorMappingTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/ErrorMappingTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/ErrorMappingTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/ErrorMappingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/ErrorMappingTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/ErrorMappingTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/InMemoryResponseCacheTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/InMemoryResponseCacheTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/InMemoryResponseCacheTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/InMemoryResponseCacheTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/InMemoryResponseCacheTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/InMemoryResponseCacheTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/LoginBootstrapTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/LoginBootstrapTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/LoginBootstrapTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/LoginBootstrapTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/LoginBootstrapTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/LoginBootstrapTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/NetworkErrorMapperTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkErrorMapperTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkErrorMapperTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkErrorMapperTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkErrorMapperTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkErrorMapperTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/NetworkPolicyLayerTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkPolicyLayerTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkPolicyLayerTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkPolicyLayerTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkPolicyLayerTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/NetworkPolicyLayerTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/PolicyVerificationTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/PolicyVerificationTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/PolicyVerificationTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/PolicyVerificationTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/PolicyVerificationTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/PolicyVerificationTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/URLSessionHTTPClientTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/URLSessionHTTPClientTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/URLSessionHTTPClientTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/URLSessionHTTPClientTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/URLSessionHTTPClientTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetworkTests.build/URLSessionHTTPClientTests.dia"
+  }
+}

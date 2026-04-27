@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/AutoSampleExtractorRunner.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/AutoSampleExtractorRunner/main.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/AutoSampleExtractorRunner.build/main.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/AutoSampleExtractorRunner.build/main.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/AutoSampleExtractorRunner.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/AutoSampleExtractorRunner.build/main.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/AutoSampleExtractorRunner.build/main.dia"
+  }
+}

@@ -1,0 +1,16 @@
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/CSSExecutor.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/FixtureTocItem.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/FixtureTocParser.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/FixtureTocRegressionRunner.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/GroupConsistencyPairExactConstraint.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/GroupConsistencySingleKeyConstraint.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/GroupConsistencyTripletExactConstraint.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/HTMLParser.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/JSRenderingGate.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/NonJSParserEngine.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/NonJSRuleScheduler.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/RuleParser.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/SelectorEngine.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/TocItem.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/TocParser.swift
+/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreParser/TocRule.swift

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/SampleLogin003IsolationRunner.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/SampleLogin003IsolationRunner/main.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/SampleLogin003IsolationRunner.build/main.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/SampleLogin003IsolationRunner.build/main.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/SampleLogin003IsolationRunner.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/SampleLogin003IsolationRunner.build/main.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/SampleLogin003IsolationRunner.build/main.dia"
+  }
+}

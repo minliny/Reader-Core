@@ -1,0 +1,3 @@
+module ReaderPlatformAdapters {
+    header "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/include/ReaderPlatformAdapters-Swift.h"
+}

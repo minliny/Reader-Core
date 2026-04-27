@@ -1,0 +1,26 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreJSRendererTests/JSRuntimeDOMBridgeTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeDOMBridgeTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeDOMBridgeTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeDOMBridgeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeDOMBridgeTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeDOMBridgeTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreJSRendererTests/JSRuntimeTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreJSRendererTests/JSRuntimeUnsupportedBoundaryTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeUnsupportedBoundaryTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeUnsupportedBoundaryTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeUnsupportedBoundaryTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeUnsupportedBoundaryTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRendererTests.build/JSRuntimeUnsupportedBoundaryTests.dia"
+  }
+}

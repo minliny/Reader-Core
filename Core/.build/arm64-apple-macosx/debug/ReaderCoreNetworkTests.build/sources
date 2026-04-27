@@ -1,0 +1,9 @@
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/BasicCookieJarTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/BookSourceRequestBuilderTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/ErrorMappingTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/InMemoryResponseCacheTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/LoginBootstrapTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/NetworkErrorMapperTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/NetworkPolicyLayerTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/PolicyVerificationTests.swift
+/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreNetworkTests/URLSessionHTTPClientTests.swift

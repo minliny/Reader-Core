@@ -1,0 +1,40 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreJSRenderer/JSParserEngineFactory.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSParserEngineFactory.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSParserEngineFactory.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSParserEngineFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSParserEngineFactory.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSParserEngineFactory.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreJSRenderer/JSRenderClient.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRenderClient.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRenderClient.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRenderClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRenderClient.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRenderClient.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreJSRenderer/JSRuntime.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntime.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntime.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntime~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntime.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntime.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreJSRenderer/JSRuntimeDOMBridge.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntimeDOMBridge.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntimeDOMBridge.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntimeDOMBridge~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntimeDOMBridge.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/JSRuntimeDOMBridge.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderCoreJSRenderer/UnavailableRenderClient.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/UnavailableRenderClient.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/UnavailableRenderClient.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/UnavailableRenderClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/UnavailableRenderClient.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreJSRenderer.build/UnavailableRenderClient.dia"
+  }
+}

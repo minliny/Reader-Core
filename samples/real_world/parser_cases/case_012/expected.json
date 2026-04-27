@@ -1,0 +1,6 @@
+{
+  "selector": "#content-area",
+  "expected_matches": ["正文内容从这里开始，讲述一段故事。"],
+  "match_count": 1,
+  "notes": "#id: single content block between header and footer"
+}

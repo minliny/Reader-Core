@@ -1,0 +1,25 @@
+HTTP/2 302 
+date: Sat, 25 Apr 2026 14:29:13 GMT
+content-length: 0
+location: https://m.snapd.net/user/verify.html#/read/114355/43.html
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=nliBeWv9%2FFk%2Ftf9v3Ldw7ubXACxSynBWmfXfxFCxZeXXz1kEOMKaUDHSTmsSeTHwDmlz%2BgZW02iuqfsKBA9Ych0h4m1i615f2sG0FRRHvK1P1%2BqzwZh2sXNRQ567zw%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: 9f1e09e96ccead7f-LAX
+
+HTTP/2 200 
+date: Sat, 25 Apr 2026 14:29:14 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+vary: Accept-Encoding
+x-powered-by: PHP/7.4.33
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=LSnY0H2lmMyFLNgecQIqFwMzYAJ8HWj8SGurswcTUOpXCh%2FYaNwHS7t%2BdhdlR6WaEUuxfEO53FT1HUvuiwtdNWCzEAeI6VPEjKHAnHjTSD0YJlG2N2r3gGg%2FGhl27A%3D%3D"}]}
+age: 6912
+last-modified: Sat, 25 Apr 2026 12:34:02 GMT
+cache-control: max-age=900
+cf-cache-status: HIT
+content-encoding: gzip
+cf-ray: 9f1e09f02af4ad7f-LAX
+alt-svc: h3=":443"; ma=86400
+

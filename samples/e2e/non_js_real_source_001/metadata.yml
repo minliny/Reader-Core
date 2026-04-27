@@ -1,0 +1,23 @@
+id: non_js_real_source_001
+source_name: 得奇小说（优+++）
+compat_level: p0_non_js
+non_js_only: true
+requires_login: false
+uses_js: false
+covered_stages:
+  - search
+  - detail
+  - toc
+  - content
+parser_features_used:
+  - css_selector
+  - simple_selector
+  - html_extraction
+known_gaps:
+  - 不支持复杂的 CSS 选择器（如 compound selector）
+  - 不支持 attribute selector
+  - 不支持 pseudo-class
+verification_commands:
+  - cd Core && swift test --filter RealWorldNonJSE2ECase001Tests
+  - python3 -c "import json, pathlib; for p in pathlib.Path('samples/e2e').rglob('*.json'): json.load(open(p, encoding='utf-8')); print('JSON OK', p)"
+  - ruby -e 'require "yaml"; Dir["samples/e2e/**/*.yml"].each { |f| YAML.load_file(f); puts "YAML OK #{f}" }'

@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Sample Book 6",
+    "detailURL": "http://fixture.local/book6",
+    "author": "Sample Author 6"
+  },
+  {
+    "title": "Sixth Book",
+    "detailURL": "http://fixture.local/sixth",
+    "author": "Sixth Author"
+  }
+]

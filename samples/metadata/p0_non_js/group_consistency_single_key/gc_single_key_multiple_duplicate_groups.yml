@@ -1,0 +1,34 @@
+sampleId: "gc_single_key_multiple_duplicate_groups"
+sampleFile: "samples/fixtures/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: ENTER_V3
+stage: "v3_first_slice"
+flow: "group_consistency"
+title: "Group consistency single-key multiple duplicate groups"
+featureTags:
+  - "group_consistency"
+  - "single_key_unique"
+  - "multiple_duplicate_groups"
+ruleTypes:
+  - "single_key_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+expectedPath: "samples/expected/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+  content: null
+knownFailureType: "GROUP_DUPLICATE_SINGLE_KEY"
+owner: "core-parser"
+notes: "V3 first-slice sample. Three duplicate groups on the same key."

@@ -1,0 +1,3 @@
+module ReaderCoreNetwork {
+    header "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreNetwork.build/include/ReaderCoreNetwork-Swift.h"
+}

@@ -1,0 +1,41 @@
+{
+  "issue_count": 3,
+  "issue_values": [
+    "alpha",
+    "beta",
+    "gamma"
+  ],
+  "duplicate_counts": [
+    2,
+    2,
+    2
+  ],
+  "issue_record_ids": [
+    [
+      "r-001",
+      "r-003"
+    ],
+    [
+      "r-002",
+      "r-004"
+    ],
+    [
+      "r-005",
+      "r-006"
+    ]
+  ],
+  "issue_positions": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      4,
+      5
+    ]
+  ]
+}

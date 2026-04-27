@@ -1,0 +1,40 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreModelsTests/BookSourceCoreFieldTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceCoreFieldTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceCoreFieldTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceCoreFieldTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceCoreFieldTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceCoreFieldTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreModelsTests/BookSourceDecodingTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceDecodingTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceDecodingTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceDecodingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceDecodingTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/BookSourceDecodingTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreModelsTests/EnvironmentTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/EnvironmentTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/EnvironmentTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/EnvironmentTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/EnvironmentTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/EnvironmentTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreModelsTests/ErrorMapperTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ErrorMapperTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ErrorMapperTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ErrorMapperTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ErrorMapperTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ErrorMapperTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreModelsTests/ReadingFlowModelsTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ReadingFlowModelsTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ReadingFlowModelsTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ReadingFlowModelsTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ReadingFlowModelsTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreModelsTests.build/ReadingFlowModelsTests.dia"
+  }
+}

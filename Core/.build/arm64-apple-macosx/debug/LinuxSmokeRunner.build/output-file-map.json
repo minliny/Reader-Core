@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/LinuxSmokeRunner/linux_smoke_main.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_main.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_main.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_main~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_main.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_main.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/LinuxSmokeRunner/linux_smoke_runner.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_runner.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_runner.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_runner.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/LinuxSmokeRunner.build/linux_smoke_runner.dia"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "selector": "div > span",
+  "expected_matches": [],
+  "match_count": 0,
+  "negative_case": true,
+  "unsupported_form": "direct child selector",
+  "actual_behavior": "No '.' or '#' → falls to bare-tag path. Parser looks for literal tag '<div > span>...</div > span>' which does not exist in HTML.",
+  "notes": "V2 does not support direct child selectors. Requires nesting-aware traversal (V3+)."
+}

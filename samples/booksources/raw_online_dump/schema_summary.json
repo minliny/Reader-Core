@@ -1,0 +1,341 @@
+{
+  "total_records": 300,
+  "unique_records": 295,
+  "duplicate_records": 5,
+  "field_coverage": {
+    "bookSourceComment": {
+      "count": 253,
+      "coverage": 84.33333333333334
+    },
+    "bookSourceGroup": {
+      "count": 289,
+      "coverage": 96.33333333333334
+    },
+    "bookSourceName": {
+      "count": 300,
+      "coverage": 100.0
+    },
+    "bookSourceType": {
+      "count": 299,
+      "coverage": 99.66666666666667
+    },
+    "bookSourceUrl": {
+      "count": 300,
+      "coverage": 100.0
+    },
+    "customOrder": {
+      "count": 295,
+      "coverage": 98.33333333333333
+    },
+    "enabled": {
+      "count": 295,
+      "coverage": 98.33333333333333
+    },
+    "enabledCookieJar": {
+      "count": 236,
+      "coverage": 78.66666666666666
+    },
+    "enabledExplore": {
+      "count": 295,
+      "coverage": 98.33333333333333
+    },
+    "header": {
+      "count": 116,
+      "coverage": 38.666666666666664
+    },
+    "lastUpdateTime": {
+      "count": 296,
+      "coverage": 98.66666666666667
+    },
+    "respondTime": {
+      "count": 236,
+      "coverage": 78.66666666666666
+    },
+    "ruleBookInfo": {
+      "count": 285,
+      "coverage": 95.0
+    },
+    "ruleContent": {
+      "count": 285,
+      "coverage": 95.0
+    },
+    "ruleExplore": {
+      "count": 281,
+      "coverage": 93.66666666666667
+    },
+    "ruleSearch": {
+      "count": 285,
+      "coverage": 95.0
+    },
+    "ruleToc": {
+      "count": 285,
+      "coverage": 95.0
+    },
+    "searchUrl": {
+      "count": 268,
+      "coverage": 89.33333333333333
+    },
+    "weight": {
+      "count": 300,
+      "coverage": 100.0
+    },
+    "customButton": {
+      "count": 9,
+      "coverage": 3.0
+    },
+    "eventListener": {
+      "count": 10,
+      "coverage": 3.3333333333333335
+    },
+    "exploreUrl": {
+      "count": 190,
+      "coverage": 63.33333333333333
+    },
+    "bookUrlPattern": {
+      "count": 133,
+      "coverage": 44.333333333333336
+    },
+    "jsLib": {
+      "count": 6,
+      "coverage": 2.0
+    },
+    "loginUi": {
+      "count": 23,
+      "coverage": 7.666666666666666
+    },
+    "loginUrl": {
+      "count": 147,
+      "coverage": 49.0
+    },
+    "ruleReview": {
+      "count": 68,
+      "coverage": 22.666666666666664
+    },
+    "concurrentRate": {
+      "count": 26,
+      "coverage": 8.666666666666668
+    },
+    "loginCheckJs": {
+      "count": 28,
+      "coverage": 9.333333333333334
+    },
+    "coverDecodeJs": {
+      "count": 13,
+      "coverage": 4.333333333333334
+    },
+    "exploreScreen": {
+      "count": 7,
+      "coverage": 2.3333333333333335
+    },
+    "variableComment": {
+      "count": 14,
+      "coverage": 4.666666666666667
+    },
+    "searchRule": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "tag": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "tocRule": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "contentRule": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "exploreRule": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "bookInfoRule": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "loginJs": {
+      "count": 18,
+      "coverage": 6.0
+    },
+    "key": {
+      "count": 45,
+      "coverage": 15.0
+    },
+    "enabledReview": {
+      "count": 27,
+      "coverage": 9.0
+    },
+    "enable": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "flyersoft": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "from": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "httpUserAgent": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleBookAuthor": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleBookContent": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleBookKind": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleBookLastChapter": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleBookName": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleBookUrlPattern": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleBookWordCount": {
+      "count": 2,
+      "coverage": 0.6666666666666667
+    },
+    "ruleChapterList": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleChapterName": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleContentUrl": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleContentUrlNext": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleCoverUrl": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleFindCoverUrl": {
+      "count": 2,
+      "coverage": 0.6666666666666667
+    },
+    "ruleFindIntroduce": {
+      "count": 2,
+      "coverage": 0.6666666666666667
+    },
+    "ruleFindKind": {
+      "count": 2,
+      "coverage": 0.6666666666666667
+    },
+    "ruleFindLastChapter": {
+      "count": 1,
+      "coverage": 0.33333333333333337
+    },
+    "ruleFindList": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleFindName": {
+      "count": 2,
+      "coverage": 0.6666666666666667
+    },
+    "ruleFindNoteUrl": {
+      "count": 2,
+      "coverage": 0.6666666666666667
+    },
+    "ruleFindUrl": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleIntroduce": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleSearchAuthor": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleSearchCoverUrl": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleSearchIntroduce": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleSearchKind": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleSearchLastChapter": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleSearchList": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleSearchName": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleSearchNoteUrl": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleSearchUrl": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "ruleSearchWordCount": {
+      "count": 1,
+      "coverage": 0.33333333333333337
+    },
+    "serialNumber": {
+      "count": 5,
+      "coverage": 1.6666666666666667
+    },
+    "testState": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "testTime": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleChapterUrl": {
+      "count": 4,
+      "coverage": 1.3333333333333335
+    },
+    "ruleChapterUrlNext": {
+      "count": 3,
+      "coverage": 1.0
+    },
+    "ruleBookInfoInit": {
+      "count": 1,
+      "coverage": 0.33333333333333337
+    },
+    "ruleFindAuthor": {
+      "count": 1,
+      "coverage": 0.33333333333333337
+    }
+  },
+  "top_level_field_count": 83,
+  "generated_at": "2026-04-26"
+}

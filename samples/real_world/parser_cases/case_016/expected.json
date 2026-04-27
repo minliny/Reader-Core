@@ -1,0 +1,6 @@
+{
+  "selector": "tr.item",
+  "expected_matches": ["第一行数据", "第二行数据"],
+  "match_count": 2,
+  "notes": "tag.class: tr.item only, tr.header-row excluded"
+}

@@ -1,0 +1,40 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderPlatformAdapters/AdapterIntegrationTestHarness.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/AdapterIntegrationTestHarness.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/AdapterIntegrationTestHarness.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/AdapterIntegrationTestHarness~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/AdapterIntegrationTestHarness.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/AdapterIntegrationTestHarness.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderPlatformAdapters/HTTPAdapterFactory.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/HTTPAdapterFactory.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/HTTPAdapterFactory.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/HTTPAdapterFactory~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/HTTPAdapterFactory.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/HTTPAdapterFactory.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderPlatformAdapters/MinimalHTTPAdapter.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/MinimalHTTPAdapter.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/MinimalHTTPAdapter.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/MinimalHTTPAdapter~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/MinimalHTTPAdapter.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/MinimalHTTPAdapter.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderPlatformAdapters/TraceInspector.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/TraceInspector.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/TraceInspector.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/TraceInspector~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/TraceInspector.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/TraceInspector.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/ReaderPlatformAdapters/URLSessionHTTPClient.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/URLSessionHTTPClient.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/URLSessionHTTPClient.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/URLSessionHTTPClient~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/URLSessionHTTPClient.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdapters.build/URLSessionHTTPClient.dia"
+  }
+}

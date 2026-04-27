@@ -1,0 +1,6 @@
+{
+  "selector": ".search-result",
+  "expected_matches": ["白鹿原", "平凡的世界"],
+  "match_count": 2,
+  "notes": "boundary: class name with hyphen; .search-other must not match"
+}

@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreCacheTests/MinimalCacheHTTPClientTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/MinimalCacheHTTPClientTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/MinimalCacheHTTPClientTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/MinimalCacheHTTPClientTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/MinimalCacheHTTPClientTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/MinimalCacheHTTPClientTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderCoreCacheTests/SimpleCacheRepositoryTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/SimpleCacheRepositoryTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/SimpleCacheRepositoryTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/SimpleCacheRepositoryTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/SimpleCacheRepositoryTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderCoreCacheTests.build/SimpleCacheRepositoryTests.dia"
+  }
+}

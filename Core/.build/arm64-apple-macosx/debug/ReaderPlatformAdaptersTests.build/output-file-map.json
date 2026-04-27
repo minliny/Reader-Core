@@ -1,0 +1,26 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderPlatformAdaptersTests/AdapterIntegrationTestHarnessTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/AdapterIntegrationTestHarnessTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/AdapterIntegrationTestHarnessTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/AdapterIntegrationTestHarnessTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/AdapterIntegrationTestHarnessTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/AdapterIntegrationTestHarnessTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderPlatformAdaptersTests/MinimalHTTPAdapterTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/MinimalHTTPAdapterTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/MinimalHTTPAdapterTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/MinimalHTTPAdapterTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/MinimalHTTPAdapterTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/MinimalHTTPAdapterTests.dia"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Tests/ReaderPlatformAdaptersTests/TraceInspectorTests.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/TraceInspectorTests.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/TraceInspectorTests.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/TraceInspectorTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/TraceInspectorTests.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/ReaderPlatformAdaptersTests.build/TraceInspectorTests.dia"
+  }
+}

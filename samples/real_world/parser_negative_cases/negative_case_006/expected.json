@@ -1,0 +1,9 @@
+{
+  "selector": "li:first-child",
+  "expected_matches": [],
+  "match_count": 0,
+  "negative_case": true,
+  "unsupported_form": "pseudo-class",
+  "actual_behavior": "No '.' or '#' → falls to bare-tag path. Parser looks for literal tag '<li:first-child>...</li:first-child>' which does not exist in HTML.",
+  "notes": "V2 does not support pseudo-classes. Position-based selection requires DOM tree awareness (V3+)."
+}

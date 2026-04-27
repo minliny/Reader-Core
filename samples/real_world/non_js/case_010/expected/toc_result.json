@@ -1,0 +1,14 @@
+[
+  {
+    "chapterTitle": "Chapter 1",
+    "chapterURL": "http://fixture.local/chapter1"
+  },
+  {
+    "chapterTitle": "Chapter 2",
+    "chapterURL": "http://fixture.local/chapter2"
+  },
+  {
+    "chapterTitle": "Chapter 3",
+    "chapterURL": "http://fixture.local/chapter3"
+  }
+]

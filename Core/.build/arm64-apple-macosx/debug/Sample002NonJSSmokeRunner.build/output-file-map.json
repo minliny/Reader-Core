@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/Sample002NonJSSmokeRunner.build/primary.swiftdeps"
+  },
+  "/Users/minliny/Documents/Reader-Core/Core/Sources/Sample002NonJSSmokeRunner/run_sample_002_nonjs_smoke.swift": {
+    "dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/Sample002NonJSSmokeRunner.build/run_sample_002_nonjs_smoke.d",
+    "object": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/Sample002NonJSSmokeRunner.build/run_sample_002_nonjs_smoke.swift.o",
+    "swiftmodule": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/Sample002NonJSSmokeRunner.build/run_sample_002_nonjs_smoke~partial.swiftmodule",
+    "swift-dependencies": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/Sample002NonJSSmokeRunner.build/run_sample_002_nonjs_smoke.swiftdeps",
+    "diagnostics": "/Users/minliny/Documents/Reader-Core/Core/.build/arm64-apple-macosx/debug/Sample002NonJSSmokeRunner.build/run_sample_002_nonjs_smoke.dia"
+  }
+}

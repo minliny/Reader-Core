@@ -1,0 +1,42 @@
+{
+  "pass": false,
+  "checked_key": "device_name",
+  "checked_count": 5,
+  "issue_count": 2,
+  "issues": [
+    {
+      "code": "GROUP_DUPLICATE_SINGLE_KEY",
+      "key": "device_name",
+      "value": "zeta",
+      "message": "duplicate value 'zeta' for key 'device_name'",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-001",
+          "r-003"
+        ],
+        "positions": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "code": "GROUP_DUPLICATE_SINGLE_KEY",
+      "key": "device_name",
+      "value": "alpha",
+      "message": "duplicate value 'alpha' for key 'device_name'",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-002",
+          "r-005"
+        ],
+        "positions": [
+          1,
+          4
+        ]
+      }
+    }
+  ]
+}

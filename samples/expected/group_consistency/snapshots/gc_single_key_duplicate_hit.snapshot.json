@@ -1,0 +1,24 @@
+{
+  "pass": false,
+  "checked_key": "device_name",
+  "checked_count": 4,
+  "issue_count": 1,
+  "issues": [
+    {
+      "code": "GROUP_DUPLICATE_SINGLE_KEY",
+      "key": "device_name",
+      "value": "alpha",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-001",
+          "r-003"
+        ],
+        "positions": [
+          0,
+          2
+        ]
+      }
+    }
+  ]
+}
