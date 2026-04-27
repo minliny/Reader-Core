@@ -1,0 +1,39 @@
+id: text_filter_minimal
+name: Text Filter Minimal
+description: Test cases for minimal text filter capability
+scope: minimal_text_filter
+match_type: substring_only
+language: unicode_supported
+attr_whitelist:
+  - href
+  - src
+  - content
+  - text
+  - html
+unsupported:
+  - regex
+  - pseudo selector
+  - multi text condition
+  - index
+  - JS
+# Semantic收口配置
+minimal_clickable_ancestor_allowed: true
+sibling_fallback: false
+descendant_fallback: false
+arbitrary_ancestor_fallback: false
+fields:
+  - name: simple_text_href
+    selector: "text.目录@href"
+    description: Extract href from text "目录"
+  - name: chinese_text_href
+    selector: "text.全集目录@href"
+    description: Extract href from Chinese text "全集目录"
+  - name: parent_scoped_text
+    selector: ".nav text.下一章@href"
+    description: Extract href from text "下一章" within .nav parent
+  - name: sibling_tag_text_filter
+    selector: "text.目录@href"
+    description: Extract href from text "目录" (sibling tag test)
+  - name: minimal_clickable_ancestor_text_filter
+    selector: "text.目录@href"
+    description: Extract href from text "目录" (minimal clickable ancestor test)

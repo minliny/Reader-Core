@@ -1,0 +1,6 @@
+{
+  "selector": "h3",
+  "expected_matches": ["引言", "第一节", "第二节"],
+  "match_count": 3,
+  "notes": "tag: h3 only, h4 excluded"
+}

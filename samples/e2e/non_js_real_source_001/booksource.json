@@ -1,0 +1,38 @@
+{
+  "bookSourceName": "得奇小说（优+++）",
+  "bookSourceUrl": "https://www.deqibook.com",
+  "bookSourceGroup": "小说 书源",
+  "bookSourceType": 0,
+  "searchUrl": "/tag/?key={{key}}",
+  "ruleSearch": {
+    "bookList": ".item",
+    "name": "a.1@text",
+    "bookUrl": "a.1@href",
+    "author": "p.1@text",
+    "kind": "span@text",
+    "lastChapter": "ul@li.0@text",
+    "coverUrl": "img@src"
+  },
+  "ruleBookInfo": {
+    "name": "h1@a@text",
+    "author": ".itemtxt@p.1@text",
+    "coverUrl": ".item@img@src",
+    "kind": ".itemtxt@span@text",
+    "lastChapter": ".itemtxt@li.0@text",
+    "intro": ".des.0@text",
+    "wordCount": "h1@i@text"
+  },
+  "ruleToc": {
+    "chapterList": "#list@li",
+    "chapterName": "a@text",
+    "chapterUrl": "a@href",
+    "nextTocUrl": "text.下一页@href"
+  },
+  "ruleContent": {
+    "content": ".con@html",
+    "nextContentUrl": "text.下一页@href"
+  },
+  "enabled": true,
+  "enabledExplore": true,
+  "enabledCookieJar": true
+}

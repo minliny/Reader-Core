@@ -1,0 +1,6 @@
+{
+  "selector": ".article-title",
+  "expected_matches": ["Swift 并发入门", "Actor 模型详解"],
+  "match_count": 2,
+  "notes": ".class basic match, multiple hits"
+}

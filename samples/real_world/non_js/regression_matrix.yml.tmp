@@ -1,0 +1,18 @@
+  - case_id: case_022
+    source_name: 得奇小说（优+++）
+    source_url: https://www.deqibook.com
+    status: partial
+    stage_results:
+      search: pass
+      detail: pass
+      toc: pass
+      content: pass
+    parser_features_used:
+      - css_selector
+      - simple_selector
+      - html_extraction
+    failure_reason: ["fixture_not_from_real_website"]
+    failure_taxonomy:
+      - fixture_not_from_real_website
+    last_verified_command: cd Core && swift test --filter RealWorldNonJSE2ERegressionTests
+    notes: "HTML fixtures are example data (not from real website); pipeline logic verified"

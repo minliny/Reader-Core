@@ -1,0 +1,363 @@
+---
+cases:
+- case_id: case_001
+  source_name: Sample-001-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_002
+  source_name: Sample-002-Fixture
+  source_url: http://fixture2.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  - simple_selector_id
+  - child_selector
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_003
+  source_name: Sample-003-Fixture
+  source_url: http://fixture3.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_tag_class
+  - tag_selector
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_004
+  source_name: Sample-004-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_005
+  source_name: Sample-005-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_006
+  source_name: Sample-006-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_007
+  source_name: Sample-007-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_008
+  source_name: Sample-008-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_009
+  source_name: Sample-009-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_010
+  source_name: Sample-010-Fixture
+  source_url: http://fixture.local
+  status: pass
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: sample data - not real-world HTML, excluded from real_valid_cases
+- case_id: case_011
+  source_name: Case-011-Non-JS
+  source_url: http://case011.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_021
+  source_name: snapd.net
+  source_url: https://m.snapd.net/read/114355/
+  status: partial
+  stage_results:
+    search: blocked
+    detail: pass
+    toc: blocked
+    content: blocked
+  parser_features_used:
+  - simple_selector_class
+  - og_meta_tags
+  failure_reason:
+  - anti_scraping_response
+  - missing_search_html
+  failure_taxonomy:
+  - anti_scraping_response
+  - missing_search_html
+  last_verified_command: curl -L --compressed -A "Mozilla/5.0" https://m.snapd.net/read/114355/
+  notes: real detail HTML available; toc/content blocked by verify redirect
+- case_id: case_022
+  source_name: 得奇小说（优+++）
+  source_url: https://www.deqibook.com
+  status: blocked
+  stage_results:
+    search: blocked
+    detail: blocked
+    toc: blocked
+    content: blocked
+  parser_features_used: []
+  failure_reason:
+  - network_fixture_unavailable
+  - no_accessible_real_non_js_source_html
+  failure_taxonomy:
+  - network_fixture_unavailable
+  - no_accessible_real_non_js_source_html
+  last_verified_command: curl -L --compressed -A Mozilla/5.0 https://www.deqibook.com
+  notes: BLOCKED - cannot fetch real HTML; tested sites blocked by anti-scraping
+- case_id: case_012
+  source_name: Case-012-Non-JS
+  source_url: http://case012.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_013
+  source_name: Case-013-Non-JS
+  source_url: http://case013.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_014
+  source_name: Case-014-Non-JS
+  source_url: http://case014.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_015
+  source_name: Case-015-Non-JS
+  source_url: http://case015.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_016
+  source_name: Case-016-Non-JS
+  source_url: http://case016.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_017
+  source_name: Case-017-Non-JS
+  source_url: http://case017.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_018
+  source_name: Case-018-Non-JS
+  source_url: http://case018.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_019
+  source_name: Case-019-Non-JS
+  source_url: http://case019.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline
+- case_id: case_020
+  source_name: Case-020-Non-JS
+  source_url: http://case020.local
+  status: invalid
+  stage_results:
+    search: pass
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_class
+  failure_reason:
+  - synthetic fixture
+  failure_taxonomy:
+  - synthetic_fixture
+  last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
+  notes: synthetic data - excluded from baseline

@@ -1,0 +1,9 @@
+{
+  "selector": "div, span",
+  "expected_matches": [],
+  "match_count": 0,
+  "negative_case": true,
+  "unsupported_form": "multiple selector group",
+  "actual_behavior": "No '.' or '#' → falls to bare-tag path. Parser looks for literal tag '<div, span>...</div, span>' which does not exist. The comma is NOT interpreted as a selector separator.",
+  "notes": "V2 does not split selector groups on ','. Each call to extractBySimpleCSS handles exactly one selector."
+}

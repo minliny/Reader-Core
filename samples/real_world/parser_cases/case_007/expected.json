@@ -1,0 +1,6 @@
+{
+  "selector": ".result-title",
+  "expected_matches": ["斗破苍穹", "斗罗大陆", "完美世界", "遮天"],
+  "match_count": 4,
+  "notes": ".class: four hits, .result-meta excluded"
+}

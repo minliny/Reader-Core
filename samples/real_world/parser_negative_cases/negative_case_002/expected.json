@@ -1,0 +1,9 @@
+{
+  "selector": "div .title",
+  "expected_matches": [],
+  "match_count": 0,
+  "negative_case": true,
+  "unsupported_form": "descendant selector",
+  "actual_behavior": "The '.' triggers the tag.class branch with tag='div ' (trailing space). No real HTML element has a tag name ending in a space, so the regex matches nothing.",
+  "notes": "V2 does not support descendant selectors. Requires a full tree-aware CSS parser (V3+)."
+}

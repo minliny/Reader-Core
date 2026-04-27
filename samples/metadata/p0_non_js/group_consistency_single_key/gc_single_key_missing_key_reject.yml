@@ -1,0 +1,34 @@
+sampleId: "gc_single_key_missing_key_reject"
+sampleFile: "samples/fixtures/group_consistency/gc_single_key_missing_key_reject.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: ENTER_V3
+stage: "v3_first_slice"
+flow: "group_consistency"
+title: "Group consistency single-key missing key reject"
+featureTags:
+  - "group_consistency"
+  - "single_key_unique"
+  - "missing_key_reject"
+ruleTypes:
+  - "single_key_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency/gc_single_key_missing_key_reject.json"
+expectedPath: "samples/expected/group_consistency/gc_single_key_missing_key_reject.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency/gc_single_key_missing_key_reject.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency/gc_single_key_missing_key_reject.json"
+  content: null
+knownFailureType: "RULE_INVALID"
+owner: "core-parser"
+notes: "V3 first-slice sample. Missing rule.key field in one record must be rejected."

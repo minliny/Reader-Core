@@ -1,0 +1,6 @@
+{
+  "selector": "#main-content",
+  "expected_matches": ["主内容区块，包含完整章节文字。"],
+  "match_count": 1,
+  "notes": "boundary: id with hyphen; #main-sidebar must not match"
+}

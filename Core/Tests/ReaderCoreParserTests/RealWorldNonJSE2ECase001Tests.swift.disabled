@@ -1,0 +1,91 @@
+import XCTest
+@testable import ReaderCoreParser
+import ReaderCoreModels
+
+final class RealWorldNonJSE2ECase001Tests: XCTestCase {
+    private var engine: NonJSParserEngine!
+    private var source: BookSource!
+
+    override func setUp() {
+        super.setUp()
+        engine = NonJSParserEngine()
+        source = BookSource(
+            bookSourceName: "得奇小说（优+++）",
+            bookSourceUrl: "https://www.deqibook.com",
+            bookSourceGroup: "小说 书源",
+            bookSourceType: 0,
+            searchUrl: "/tag/?key={{key}}",
+            ruleSearch: "css:.item",
+            ruleToc: "css:#list@li",
+            ruleContent: "css:.con@html",
+            enabled: true,
+            enabledExplore: true,
+            header: [:],
+            enabledCookieJar: true
+        )
+    }
+
+    private func loadFixture(named: String) -> Data {
+        let url = Bundle.module.url(forResource: named, withExtension: "html", subdirectory: "e2e/non_js_real_source_001/fixtures")!
+        return try! Data(contentsOf: url)
+    }
+
+    private func loadExpectedSearch() -> [[String: String]] {
+        let url = Bundle.module.url(forResource: "search_result", withExtension: "json", subdirectory: "e2e/non_js_real_source_001/expected")!
+        let data = try! Data(contentsOf: url)
+        return try! JSONDecoder().decode([[String: String]].self, from: data)
+    }
+
+    private func loadExpectedTOC() -> [[String: String]] {
+        let url = Bundle.module.url(forResource: "toc_result", withExtension: "json", subdirectory: "e2e/non_js_real_source_001/expected")!
+        let data = try! Data(contentsOf: url)
+        return try! JSONDecoder().decode([[String: String]].self, from: data)
+    }
+
+    private func loadExpectedContent() -> [String: String] {
+        let url = Bundle.module.url(forResource: "content_result", withExtension: "json", subdirectory: "e2e/non_js_real_source_001/expected")!
+        let data = try! Data(contentsOf: url)
+        return try! JSONDecoder().decode([String: String].self, from: data)
+    }
+
+    func testSearchParsing() throws {
+        let data = loadFixture(named: "search")
+        let result = try engine.parseSearchResponse(data, source: source, query: SearchQuery(keyword: "传说"))
+
+        let expected = loadExpectedSearch()
+
+        XCTAssertEqual(result.count, expected.count, "Search result count mismatch. Expected: \(expected.count), Got: \(result.count)")
+
+        for (index, item) in result.enumerated() {
+            XCTAssertEqual(item.title, expected[index]["title"], "Title mismatch at index \(index)")
+            XCTAssertEqual(item.detailURL, expected[index]["detailURL"], "DetailURL mismatch at index \(index)")
+            XCTAssertEqual(item.author, expected[index]["author"], "Author mismatch at index \(index)")
+        }
+    }
+
+    func testTOCParsing() throws {
+        let data = loadFixture(named: "toc")
+        let result = try engine.parseTOCResponse(data, source: source, detailURL: "/xiaoshuo/12345/")
+
+        let expected = loadExpectedTOC()
+
+        XCTAssertEqual(result.count, expected.count, "TOC result count mismatch. Expected: \(expected.count), Got: \(result.count)")
+
+        for (index, item) in result.enumerated() {
+            XCTAssertEqual(item.chapterTitle, expected[index]["chapterTitle"], "ChapterTitle mismatch at index \(index)")
+            XCTAssertEqual(item.chapterURL, expected[index]["chapterURL"], "ChapterURL mismatch at index \(index)")
+            XCTAssertEqual(item.chapterIndex, index, "ChapterIndex mismatch at index \(index)")
+        }
+    }
+
+    func testContentParsing() throws {
+        let data = loadFixture(named: "content")
+        let result = try engine.parseContentResponse(data, source: source, chapterURL: "/xiaoshuo/12345/1.html")
+
+        let expected = loadExpectedContent()
+
+        XCTAssertEqual(result.title, "正文", "Title mismatch")
+        XCTAssertEqual(result.content, expected["content"], "Content mismatch. Expected: \(expected["content"] ?? "nil"), Got: \(result.content)")
+        XCTAssertEqual(result.chapterURL, "/xiaoshuo/12345/1.html", "ChapterURL mismatch")
+    }
+}

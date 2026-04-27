@@ -1,0 +1,6 @@
+{
+  "selector": "#chapter-content",
+  "expected_matches": ["第三章：内存管理"],
+  "match_count": 1,
+  "notes": "#id basic match, single element"
+}

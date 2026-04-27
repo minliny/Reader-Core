@@ -2,7 +2,7 @@ import Foundation
 import ReaderCoreModels
 import ReaderCoreProtocols
 
-public final class NonJSParserEngine: SearchParser, TOCParser, ContentParser {
+public final class NonJSParserEngine: SearchParser, TOCParser, ContentParser, BookInfoParser {
     private let scheduler: RuleScheduler
     private let jsGate: JSRenderingGate
 
@@ -30,6 +30,31 @@ public final class NonJSParserEngine: SearchParser, TOCParser, ContentParser {
             throw flowError(type: .SEARCH_FAILED, reason: "empty_search_result", flow: .search, message: "Search parsing produced empty result.")
         }
         return items
+    }
+
+    public func parseBookInfoResponse(_ data: Data, source: BookSource, detailURL: String) throws -> BookInfo {
+        let rule = source.ruleBookInfo ?? ""
+        let (effectiveData, effectiveRule) = applyJSPreprocessing(data: data, rule: rule)
+        let lines = try scheduler.evaluate(rule: effectiveRule, data: effectiveData, flow: .bookInfo, source: source)
+        
+        if lines.isEmpty {
+            throw flowError(type: .BOOK_INFO_FAILED, reason: "empty_book_info", flow: .bookInfo, message: "Book info parsing produced empty result.")
+        }
+        
+        let line = lines.first!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let parts = line.split(separator: "|", maxSplits: 4).map(String.init)
+        
+        let bookName = parts.count > 0 ? parts[0].trimmingCharacters(in: .whitespacesAndNewlines) : ""
+        let author = parts.count > 1 ? parts[1].trimmingCharacters(in: .whitespacesAndNewlines) : ""
+        let coverURL = parts.count > 2 ? parts[2].trimmingCharacters(in: .whitespacesAndNewlines) : ""
+        let intro = parts.count > 3 ? parts[3].trimmingCharacters(in: .whitespacesAndNewlines) : ""
+        let tocURL = parts.count > 4 ? parts[4].trimmingCharacters(in: .whitespacesAndNewlines) : detailURL
+        
+        if bookName.isEmpty {
+            throw flowError(type: .BOOK_INFO_FAILED, reason: "missing_book_name", flow: .bookInfo, message: "Book info parsing missing book name.")
+        }
+        
+        return BookInfo(bookName: bookName, author: author, coverURL: coverURL, intro: intro, tocURL: tocURL)
     }
 
     public func parseTOCResponse(_ data: Data, source: BookSource, detailURL: String) throws -> [TOCItem] {

@@ -1,0 +1,7 @@
+{
+  "bookName": "Book 1",
+  "author": "Author 1",
+  "coverURL": "http://case015.local/cover/1.jpg",
+  "intro": "This is the introduction for Book 1. It tells the story of a young hero on a journey to save the world.",
+  "tocURL": "http://case015.local/book/1/toc"
+}

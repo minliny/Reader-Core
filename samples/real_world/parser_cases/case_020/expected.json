@@ -1,0 +1,6 @@
+{
+  "selector": ".book-entry",
+  "expected_matches": ["倚天屠龙记"],
+  "match_count": 1,
+  "notes": "boundary: single-item result set; .other-entry must not match"
+}

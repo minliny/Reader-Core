@@ -1,0 +1,10 @@
+{
+  "rejected": true,
+  "checked_keys": [
+    "device_name"
+  ],
+  "error": {
+    "code": "RULE_INVALID",
+    "message": "rule.keys must contain exactly 2 keys; got 1"
+  }
+}

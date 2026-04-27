@@ -1,0 +1,9 @@
+{
+  "selector": "a[href]",
+  "expected_matches": [],
+  "match_count": 0,
+  "negative_case": true,
+  "unsupported_form": "attribute selector",
+  "actual_behavior": "No '.' or '#' → falls to bare-tag path. NSRegularExpression.escapedPattern escapes '[' and ']', so parser looks for '<a\\[href\\]>...</a\\[href\\]>' which does not exist.",
+  "notes": "V2 does not support CSS attribute selectors. The XPath /@attr form exists for attribute extraction but is a different pipeline."
+}

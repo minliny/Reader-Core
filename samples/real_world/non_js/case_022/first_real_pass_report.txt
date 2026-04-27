@@ -1,0 +1,21 @@
+============ FIRST_REAL_PASS_CASE_REPORT ============
+case: case_022
+
+detail:
+  status: PASS
+  extracted_fields:
+    bookName: 563.2万字捞尸人
+    author: 
+    tocUrl: https://www.sudugu.org/51/
+
+toc:
+  status: PASS
+  chapter_count: 659
+
+content:
+  status: PASS
+  content_length: 3465
+
+final:
+  FIRST_REAL_PASS_CASE: YES
+=====================================================

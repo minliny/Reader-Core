@@ -1,0 +1,11 @@
+id: attribute_extraction_minimal
+name: Attribute Extraction Minimal
+url: https://example.com
+description: Test cases for minimal attribute extraction capability
+fields:
+  - name: href_class
+    selector: .chapter@href
+  - name: src_id
+    selector: #cover@src
+  - name: content_tag_class
+    selector: meta.book@content

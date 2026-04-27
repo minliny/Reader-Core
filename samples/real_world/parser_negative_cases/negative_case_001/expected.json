@@ -1,0 +1,9 @@
+{
+  "selector": "div#main",
+  "expected_matches": [],
+  "match_count": 0,
+  "negative_case": true,
+  "unsupported_form": "tag#id",
+  "actual_behavior": "Falls through to bare-tag path; parser treats 'div#main' as a literal tag name which does not exist in HTML, returning 0 matches.",
+  "notes": "V2 does not support compound tag#id. Use plain '#main' (id selector) to match by id only."
+}
