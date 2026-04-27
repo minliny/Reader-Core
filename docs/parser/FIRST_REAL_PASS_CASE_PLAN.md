@@ -10,6 +10,7 @@ case_022 completed
 ```
 
 - **Completed case**: case_022 (sudugu.org) — case_022 completed
+- **Invalidated attempt**: case_023 attempt invalidated due to scope drift; Parser extensions from `5173ece` / `e8437ea` are reclassified as Parser V3 capability work, not a real-world pass case.
 - **Test**: `swift test --filter Case022FirstRealPassTests` → PASS
 - **Real evidence**:
   - detail: tocUrl 可提取
@@ -26,6 +27,14 @@ case_022 completed
   - "regression expanded" 类升级标识
 
 下一步建议参见本文末尾「Next Steps After Success」与 `samples/real_world/non_js/regression_report.md` §9。
+
+## Case 023 Boundary After Scope Drift
+
+`CASE_023 = INVALID_DUE_TO_SCOPE_DRIFT`.
+
+The case_023 attempt mixed real-world evaluation with Parser source/API expansion, so it cannot count as a second real-world pass case. The current real-world count remains `real_valid_pass_cases = 1`, with case_022 as the only established first real pass case.
+
+Future case_023 work must not modify Parser source, parser protocols, selector semantics, parser public API, case_022 files, or freeze-gate expectations. It must evaluate the already-documented Parser capability boundary and land the required sample, metadata, expected outputs, matrix binding, failure/success reason, and regression result as an independent real-world case.
 
 ---
 
@@ -68,7 +77,8 @@ Establish a **FIRST_REAL_PASS_CASE** for the non-JS parser by successfully parsi
    - Manually save HTML from browser (right-click → Save Page As)
    - Ensure complete HTML (including all necessary elements)
    - Save as clean HTML (not MHTML)
-   - Store in `samples/real_world/case_022/` or `case_023/` directory
+   - Store first-pass evidence in `samples/real_world/case_022/`
+   - Future `case_023` evidence must be created only after the Parser capability boundary is fixed for that attempt
 
 ### Phase 3: Rule Creation
 
@@ -143,12 +153,12 @@ Establish a **FIRST_REAL_PASS_CASE** for the non-JS parser by successfully parsi
 - **End-to-End Pipeline**: Works from detail to content
 - **No JavaScript**: All parsing done with non-JS capabilities
 - **Clear Documentation**: Complete case documentation
-- **Regression Ready**: Ready for inclusion in regression suite
+- **Regression Inclusion Candidate**: eligible for regression suite review without implying broader baseline readiness
 
 ## Next Steps After Success
 
 1. **Update Parser Status**: Mark FIRST_REAL_PASS_CASE as achieved
-2. **Expand Coverage**: Identify next site to add to regression suite
+2. **Expand Coverage**: Identify next site to evaluate only after freezing the Parser capability boundary for that attempt
 3. **Capability Analysis**: Use success to inform future capability expansion
 4. **Build Confidence**: Provide confidence for future integration
 

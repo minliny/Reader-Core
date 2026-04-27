@@ -210,7 +210,7 @@ v3_e2e_slice:
     - "persistence_expansion"
 
 v3_attribute_extraction_minimal:
-  status: "partial"
+  status: "implemented_and_tested"
   scope:
     supported:
       - selector@href
@@ -232,7 +232,7 @@ v3_attribute_extraction_minimal:
     - AttributeExtractionMinimalTests
 
 v3_descendant_selector_minimal:
-  status: "partial"
+  status: "implemented_and_tested"
   scope:
     supported:
       - parent child
@@ -260,7 +260,7 @@ v3_descendant_selector_minimal:
     - DescendantSelectorMinimalTests
 
 v3_text_filter_minimal:
-  status: "partial"
+  status: "implemented_and_tested"
   scope:
     supported:
       - text.xxx
@@ -280,3 +280,40 @@ v3_text_filter_minimal:
     arbitrary_ancestor_fallback: false
   tests:
     - TextFilterMinimalTests
+
+book_info_public_api:
+  status: "implemented_and_tested"
+  scope:
+    supported:
+      - BookInfoParser conformance
+      - parseBookInfoResponse
+      - bookInfo flow
+      - ruleBookInfo scheduler evaluation
+    unsupported:
+      - iOS coupling
+      - real_world_pass_case_claim
+      - parser_protocol_expansion_beyond_book_info
+  tests:
+    - ParserPublicAPITests
+    - Case022FirstRealPassTests
+  reclassification:
+    case_023_evidence: false
+    belongs_to: "Parser V3 capability work"
+
+scope_drift_reclassification_2026_04_27:
+  status: "targeted_verified"
+  baseline: "5865c64"
+  audited_range: "5865c64..HEAD"
+  decision:
+    case_023: "INVALID_DUE_TO_SCOPE_DRIFT"
+    real_valid_pass_cases: 1
+    first_real_pass_case: "case_022"
+    baseline_ready: false
+  reclassified_blocks:
+    - v3_attribute_extraction_minimal
+    - v3_descendant_selector_minimal
+    - v3_text_filter_minimal
+    - book_info_public_api
+    - group_consistency_runtime
+  docs:
+    - docs/parser/PARSER_V3_CAPABILITY_RECLASSIFICATION.md
