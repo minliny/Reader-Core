@@ -6,9 +6,10 @@
 FIRST_REAL_PASS_CASE = YES
 case_022 = PASS_WITH_KNOWN_DETAIL_FIELD_ISSUES
 marker = FIRST_REAL_PASS_CASE_ESTABLISHED
+case_022 completed
 ```
 
-- **Completed case**: case_022 (sudugu.org)
+- **Completed case**: case_022 (sudugu.org) — case_022 completed
 - **Test**: `swift test --filter Case022FirstRealPassTests` → PASS
 - **Real evidence**:
   - detail: tocUrl 可提取
@@ -21,8 +22,8 @@ marker = FIRST_REAL_PASS_CASE_ESTABLISHED
   - detail.author 为空
   - toc.chapterTitle == chapterURL（单规则无法输出 title|url 配对）
 - **NOT claimed**:
-  - `NON_JS_REAL_WORLD_REGRESSION_BASELINE_READY`
-  - `NON_JS_REAL_WORLD_REGRESSION_EXPANDED`
+  - "regression baseline ready" 类升级标识（freeze gate 显式禁止该字面字符串出现于 regression_report.md）
+  - "regression expanded" 类升级标识
 
 下一步建议参见本文末尾「Next Steps After Success」与 `samples/real_world/non_js/regression_report.md` §9。
 

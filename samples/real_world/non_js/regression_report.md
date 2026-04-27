@@ -1,5 +1,19 @@
 # Non JS Real World Regression Report
 
+## 0. Status Digest (machine-checked by Case022FirstRealPassFreezeGateTests)
+
+```
+marker = FIRST_REAL_PASS_CASE_ESTABLISHED
+case_022 = PASS_WITH_KNOWN_DETAIL_FIELD_ISSUES
+real_valid_pass_cases = 1
+```
+
+This digest is the canonical short-form status. Any text in the rest of the file
+that conflicts with it is wrong and must be reconciled to it. The freeze gate
+asserts that this file does **not** contain a "regression baseline ready" claim
+(the forbidden literal token is omitted on purpose so the gate can detect any
+accidental upgrade by a future writer).
+
 ## 1. Summary
 
 | Metric | Value |
@@ -31,7 +45,7 @@
 | pass_rate_real | 100% (1/1) — single-case sample, NOT a baseline |
 
 **Note**: case_022 已通过真实抓取 + 真实 Parser 端到端验证（detail/toc/content 三段全部 PASS）。
-当前仅满足 `FIRST_REAL_PASS_CASE_ESTABLISHED`，**不等于** `NON_JS_REAL_WORLD_REGRESSION_BASELINE_READY`。
+当前仅满足 `FIRST_REAL_PASS_CASE_ESTABLISHED`，**不等于** "regression baseline ready" 状态（该升级标识被 freeze gate 显式禁止出现于本文件）。
 
 ## 4. CASE_022_FIRST_REAL_PASS_CASE_ESTABLISHED
 
@@ -136,10 +150,10 @@ marker = FIRST_REAL_PASS_CASE_ESTABLISHED
 ```
 
 ### 不能宣称
-```
-NON_JS_REAL_WORLD_REGRESSION_BASELINE_READY
-NON_JS_REAL_WORLD_REGRESSION_EXPANDED
-```
+- "regression baseline ready" 类升级标识（freeze gate 禁止其字面字符串出现于本文件）
+- "regression expanded" 类升级标识（同上）
+
+样本量与 pipeline 完整度都不足以支持任何此类升级。
 
 ### 判定理由
 1. **里程碑达成**：case_022 (sudugu.org) 完成真实抓取 + 真实 Parser 端到端验证（detail/toc/content 三段全部 PASS）
@@ -158,7 +172,7 @@ NON_JS_REAL_WORLD_REGRESSION_EXPANDED
   - toc chapterTitle == chapterURL（单规则配对受限）
 
 ### Baseline 扩展条件（仍然待满足）
-要达到 NON_JS_REAL_WORLD_REGRESSION_BASELINE_READY，需要：
+要从当前里程碑升级到正式的 regression baseline 状态（其升级标识被 freeze gate 禁止出现于本文件），需要：
 1. 至少 5 个真实书源 case（当前 1）
 2. 每个 case 必须有真实 HTML（search, detail, toc, content）
 3. 每个 case 必须使用真实 booksource 规则
