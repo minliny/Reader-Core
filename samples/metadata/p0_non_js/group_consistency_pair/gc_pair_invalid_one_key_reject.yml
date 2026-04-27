@@ -1,0 +1,35 @@
+sampleId: "gc_pair_invalid_one_key_reject"
+sampleFile: "samples/fixtures/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: V3_ACTIVE
+stage: "v3_second_slice"
+flow: "group_consistency_pair"
+title: "Group consistency pair exact invalid one key reject"
+featureTags:
+  - "group_consistency"
+  - "multi_key_pair_unique"
+  - "keys_count_one_reject"
+ruleTypes:
+  - "multi_key_pair_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+expectedPath: "samples/expected/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+  content: null
+knownFailureType: "RULE_INVALID"
+owner: "core-parser"
+notes: "V3 second-slice sample. keys.count=1 must reject; pair exact only."
+

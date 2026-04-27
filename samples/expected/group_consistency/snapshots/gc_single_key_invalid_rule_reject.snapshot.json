@@ -1,0 +1,8 @@
+{
+  "rejected": true,
+  "checked_key": "device_name",
+  "error": {
+    "code": "GROUP_CONSISTENCY_INVALID_RULE",
+    "message_prefix": "unsupported rule.type 'single_key_unique_v2'"
+  }
+}

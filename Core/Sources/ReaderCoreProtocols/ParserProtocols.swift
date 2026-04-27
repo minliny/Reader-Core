@@ -5,6 +5,7 @@ public enum ParseFlow: String, Sendable, Codable {
     case search
     case toc
     case content
+    case bookInfo
 }
 
 public struct ParseRuleSet: Sendable, Equatable {
@@ -35,4 +36,24 @@ public protocol TOCParser: Sendable {
 
 public protocol ContentParser: Sendable {
     func parseContentResponse(_ data: Data, source: BookSource, chapterURL: String) throws -> ContentPage
+}
+
+public protocol BookInfoParser: Sendable {
+    func parseBookInfoResponse(_ data: Data, source: BookSource, detailURL: String) throws -> BookInfo
+}
+
+public struct BookInfo: Sendable, Codable, Equatable {
+    public var bookName: String
+    public var author: String
+    public var coverURL: String
+    public var intro: String
+    public var tocURL: String
+    
+    public init(bookName: String, author: String, coverURL: String, intro: String, tocURL: String) {
+        self.bookName = bookName
+        self.author = author
+        self.coverURL = coverURL
+        self.intro = intro
+        self.tocURL = tocURL
+    }
 }

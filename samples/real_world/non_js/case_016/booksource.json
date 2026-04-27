@@ -1,0 +1,15 @@
+{
+  "bookSourceName": "Case-016-Non-JS",
+  "bookSourceUrl": "http://case016.local",
+  "bookSourceGroup": "p0_non_js",
+  "bookSourceType": 0,
+  "searchUrl": "http://case016.local/search?q={{key}}",
+  "ruleSearch": "css:.search-item",
+  "ruleDetail": "css:.book-detail",
+  "ruleToc": "css:.chapter-list li",
+  "ruleContent": "css:.chapter-content",
+  "enabled": true,
+  "enabledExplore": false,
+  "enabledCookieJar": false,
+  "header": {}
+}

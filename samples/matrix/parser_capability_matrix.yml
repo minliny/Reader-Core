@@ -226,7 +226,57 @@ v3_attribute_extraction_minimal:
       - child selector
       - attribute selector syntax
       - pseudo selector
-      - @js
+      - "@js"
       - regex
   tests:
     - AttributeExtractionMinimalTests
+
+v3_descendant_selector_minimal:
+  status: "partial"
+  scope:
+    supported:
+      - parent child
+      - parent child@href
+      - parent child@src
+      - parent child@content
+      - parent child@text
+      - parent child@html
+    parent_selector_base:
+      - .class
+      - #id
+      - tag
+      - tag.class
+    child_selector:
+      - simple_tag_only
+    unsupported:
+      - multi_level_descendant
+      - child_selector
+      - attribute_selector
+      - pseudo_selector
+      - index_selector
+      - js
+      - regex
+  tests:
+    - DescendantSelectorMinimalTests
+
+v3_text_filter_minimal:
+  status: "partial"
+  scope:
+    supported:
+      - text.xxx
+      - text.xxx@href
+      - parent text.xxx
+      - parent text.xxx@href
+    unsupported:
+      - regex
+      - pseudo selector
+      - multi text condition
+      - index
+      - JS
+  semantic:
+    minimal_clickable_ancestor_allowed: true
+    sibling_fallback: false
+    descendant_fallback: false
+    arbitrary_ancestor_fallback: false
+  tests:
+    - TextFilterMinimalTests

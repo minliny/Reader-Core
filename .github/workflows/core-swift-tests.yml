@@ -64,6 +64,37 @@ jobs:
               "NonJSSample005RegressionTests.testSearchParsesTwoItemsFromFixture": "nonjs_sample_005_search",
               "NonJSSample005RegressionTests.testTOCParsesThreeChaptersFromFixture": "nonjs_sample_005_toc",
               "NonJSSample005RegressionTests.testContentParsesExpectedTextFromFixture": "nonjs_sample_005_content",
+              # V2 stable baseline: real-world parser cases (samples/real_world/parser_cases/)
+              # These tests are part of the default swift test run above; entries here
+              # ensure they appear in the snapshot artifact for traceability.
+              "RealWorldParserCasesTests.testCase001_dotClass_multipleHits": "rw_parser_case_001_dotclass",
+              "RealWorldParserCasesTests.testCase002_hashId_singleHit": "rw_parser_case_002_hashid",
+              "RealWorldParserCasesTests.testCase003_tag_threeHits": "rw_parser_case_003_tag",
+              "RealWorldParserCasesTests.testCase004_tagDotClass_filtersNonMatchingTag": "rw_parser_case_004_tagdotclass",
+              "RealWorldParserCasesTests.testCase005_boundary_multiClassElement_matchesWhenTargetClassPresent": "rw_parser_case_005_boundary",
+              "RealWorldParserCasesExtendedTests.testCase006_tagDotClass_divChapter": "rw_parser_case_006_tagdotclass",
+              "RealWorldParserCasesExtendedTests.testCase007_dotClass_resultTitle_fourHits": "rw_parser_case_007_dotclass",
+              "RealWorldParserCasesExtendedTests.testCase008_hashId_bookDetail": "rw_parser_case_008_hashid",
+              "RealWorldParserCasesExtendedTests.testCase009_tag_h3_excludesH4": "rw_parser_case_009_tag",
+              "RealWorldParserCasesExtendedTests.testCase010_tagDotClass_spanAuthor_excludesDivAuthor": "rw_parser_case_010_tagdotclass",
+              "RealWorldParserCasesExtendedTests.testCase011_dotClass_catalogItem_fiveHits": "rw_parser_case_011_dotclass",
+              "RealWorldParserCasesExtendedTests.testCase012_hashId_contentArea": "rw_parser_case_012_hashid",
+              "RealWorldParserCasesExtendedTests.testCase013_tag_td_sixCells": "rw_parser_case_013_tag",
+              "RealWorldParserCasesExtendedTests.testCase014_tagDotClass_pDesc_excludesPNote": "rw_parser_case_014_tagdotclass",
+              "RealWorldParserCasesExtendedTests.testCase015_boundary_classNameWithHyphen": "rw_parser_case_015_boundary",
+              "RealWorldParserCasesExtendedTests.testCase016_tagDotClass_trItem": "rw_parser_case_016_tagdotclass",
+              "RealWorldParserCasesExtendedTests.testCase017_boundary_idWithHyphen": "rw_parser_case_017_boundary",
+              "RealWorldParserCasesExtendedTests.testCase018_tag_h1_singleHit": "rw_parser_case_018_tag",
+              "RealWorldParserCasesExtendedTests.testCase019_tagDotClass_aChapterLink": "rw_parser_case_019_tagdotclass",
+              "RealWorldParserCasesExtendedTests.testCase020_boundary_singleItemResultSet": "rw_parser_case_020_boundary",
+              "ParserNegativeBoundaryTests.testNegative001_tagHashId_returnsZeroMatches": "rw_parser_negative_case_001_taghashid",
+              "ParserNegativeBoundaryTests.testNegative002_descendantSelector_returnsZeroMatches": "rw_parser_negative_case_002_descendant",
+              "ParserNegativeBoundaryTests.testNegative003_directChildSelector_returnsZeroMatches": "rw_parser_negative_case_003_child",
+              "ParserNegativeBoundaryTests.testNegative004_attributeSelector_returnsZeroMatches": "rw_parser_negative_case_004_attribute",
+              "ParserNegativeBoundaryTests.testNegative005_multipleSelectorGroup_returnsZeroMatches": "rw_parser_negative_case_005_group",
+              "ParserNegativeBoundaryTests.testNegative006_pseudoClass_returnsZeroMatches": "rw_parser_negative_case_006_pseudo",
+              # Public API integration check (no @testable — simulates iOS SPM consumer)
+              "ParserPublicAPITests.testPublicAPI_tagDotClass_returnsExpectedMatch": "parser_public_api_integration",
           }
 
           pattern = re.compile(

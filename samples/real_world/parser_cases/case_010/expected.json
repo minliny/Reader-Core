@@ -1,0 +1,6 @@
+{
+  "selector": "span.author",
+  "expected_matches": ["金庸", "古龙"],
+  "match_count": 2,
+  "notes": "tag.class: span.author only, div.author excluded"
+}

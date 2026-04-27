@@ -1,0 +1,6 @@
+{
+  "selector": ".book-item",
+  "expected_matches": ["推荐：三体", "普通：基地"],
+  "match_count": 2,
+  "notes": "boundary: element has multiple classes, match fires when target class is present among others"
+}

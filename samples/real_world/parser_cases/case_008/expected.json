@@ -1,0 +1,6 @@
+{
+  "selector": "#book-detail",
+  "expected_matches": ["三体 · 刘慈欣"],
+  "match_count": 1,
+  "notes": "#id: single match, #related excluded"
+}

@@ -35,8 +35,8 @@ parser:
     status: PASS
   scope: "This is NOT a CSS parser. Only 4 simple selector forms are supported."
 summary:
-  totalSamples: 43
-  levelA: 29
+  totalSamples: 66
+  levelA: 52
   levelB: 3
   levelC: 6
   levelD: 5
@@ -1185,3 +1185,532 @@ samples:
       - "Online auxiliary: css:li.searchresult on haitaozhe.com live Search HTML returns 7 results (PASS)."
       - "TOC auxiliary: css:a returns 53 non-empty results; chapter list is JS-loaded (only 1 link in server HTML — not a parser issue)."
       - "Content auxiliary: HTTP 403 on chapter URL — 当前区域禁止访问 (network/geo restriction, not a parser issue)."
+
+  - sampleId: "gc_single_key_duplicate_hit"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "single_key_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_single_key/gc_single_key_duplicate_hit.yml"
+    expectedPath: "samples/expected/group_consistency/gc_single_key_duplicate_hit.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency/gc_single_key_duplicate_hit.json"
+    notes:
+      - "V3 first-slice: single key duplicate detection baseline."
+
+  - sampleId: "gc_single_key_unique_pass"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "single_key_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_single_key/gc_single_key_unique_pass.yml"
+    expectedPath: "samples/expected/group_consistency/gc_single_key_unique_pass.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency/gc_single_key_unique_pass.json"
+    notes:
+      - "V3 first-slice: unique values pass with empty issues."
+
+  - sampleId: "gc_single_key_missing_key_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "single_key_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidInput"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_single_key/gc_single_key_missing_key_reject.yml"
+    expectedPath: "samples/expected/group_consistency/gc_single_key_missing_key_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency/gc_single_key_missing_key_reject.json"
+    notes:
+      - "V3 first-slice: missing target key is a reject path, not a duplicate issue path."
+
+  - sampleId: "gc_single_key_invalid_rule_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "single_key_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_single_key/gc_single_key_invalid_rule_reject.yml"
+    expectedPath: "samples/expected/group_consistency/gc_single_key_invalid_rule_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency/gc_single_key_invalid_rule_reject.json"
+    notes:
+      - "V3 first-slice: rule.type must be single_key_unique."
+
+  - sampleId: "gc_single_key_stable_ordering"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "single_key_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_single_key/gc_single_key_stable_ordering.yml"
+    expectedPath: "samples/expected/group_consistency/gc_single_key_stable_ordering.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency/gc_single_key_stable_ordering.json"
+    notes:
+      - "V3 first-slice: issue order must follow first occurrence order."
+
+  - sampleId: "gc_single_key_multiple_duplicate_groups"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "single_key_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_single_key/gc_single_key_multiple_duplicate_groups.yml"
+    expectedPath: "samples/expected/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency/gc_single_key_multiple_duplicate_groups.json"
+    notes:
+      - "V3 first-slice: multiple duplicate groups stay single-key scoped."
+
+  - sampleId: "gc_pair_duplicate_hit"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_duplicate_hit.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_duplicate_hit.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_duplicate_hit.json"
+    notes:
+      - "V3 second-slice: pair exact duplicate tuple detection baseline."
+
+  - sampleId: "gc_pair_unique_pass"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_unique_pass.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_unique_pass.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_unique_pass.json"
+    notes:
+      - "V3 second-slice: pair exact unique tuple pass."
+
+  - sampleId: "gc_pair_missing_one_key_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidInput"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_missing_one_key_reject.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_missing_one_key_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_missing_one_key_reject.json"
+    notes:
+      - "V3 second-slice: missing tuple key rejects with RULE_INVALID."
+
+  - sampleId: "gc_pair_invalid_one_key_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_invalid_one_key_reject.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_invalid_one_key_reject.json"
+    notes:
+      - "V3 second-slice: keys.count == 1 must reject."
+
+  - sampleId: "gc_pair_invalid_three_keys_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_invalid_three_keys_reject.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_invalid_three_keys_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_invalid_three_keys_reject.json"
+    notes:
+      - "V3 second-slice: keys.count == 3 must reject (no 3+ support)."
+
+  - sampleId: "gc_pair_duplicate_key_names_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_duplicate_key_names_reject.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_duplicate_key_names_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_duplicate_key_names_reject.json"
+    notes:
+      - "V3 second-slice: duplicate key names in rule.keys must reject."
+
+  - sampleId: "gc_pair_stable_ordering"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_stable_ordering.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_stable_ordering.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_stable_ordering.json"
+    notes:
+      - "V3 second-slice: deterministic issue order by first tuple appearance."
+
+  - sampleId: "gc_pair_multiple_duplicate_tuple_groups"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_pair_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_pair/gc_pair_multiple_duplicate_tuple_groups.yml"
+    expectedPath: "samples/expected/group_consistency_pair/gc_pair_multiple_duplicate_tuple_groups.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_pair/gc_pair_multiple_duplicate_tuple_groups.json"
+    notes:
+      - "V3 second-slice: multiple duplicated tuple groups are aggregated independently."
+
+  - sampleId: "gc_triplet_duplicate_hit"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_duplicate_hit.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_duplicate_hit.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_duplicate_hit.json"
+    notes:
+      - "V3 third-slice: triplet exact duplicate tuple detection baseline."
+
+  - sampleId: "gc_triplet_unique_pass"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_unique_pass.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_unique_pass.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_unique_pass.json"
+    notes:
+      - "V3 third-slice: triplet exact unique tuple pass."
+
+  - sampleId: "gc_triplet_missing_one_key_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidInput"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_missing_one_key_reject.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_missing_one_key_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_missing_one_key_reject.json"
+    notes:
+      - "V3 third-slice: missing required tuple key rejects with RULE_INVALID."
+
+  - sampleId: "gc_triplet_invalid_two_keys_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_invalid_two_keys_reject.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_invalid_two_keys_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_invalid_two_keys_reject.json"
+    notes:
+      - "V3 third-slice: keys.count == 2 must reject for triplet exact."
+
+  - sampleId: "gc_triplet_invalid_four_keys_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_invalid_four_keys_reject.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_invalid_four_keys_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_invalid_four_keys_reject.json"
+    notes:
+      - "V3 third-slice: keys.count == 4 must reject; no 4+ key support."
+
+  - sampleId: "gc_triplet_duplicate_key_names_reject"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: "RULE_INVALID"
+    errorCode: "invalidRule"
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_duplicate_key_names_reject.json"
+    notes:
+      - "V3 third-slice: duplicate key names in rule.keys must reject."
+
+  - sampleId: "gc_triplet_stable_ordering"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_stable_ordering.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_stable_ordering.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_stable_ordering.json"
+    notes:
+      - "V3 third-slice: deterministic issue order by first triplet tuple appearance."
+
+  - sampleId: "gc_triplet_multiple_duplicate_tuple_groups"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_multiple_duplicate_tuple_groups.json"
+    notes:
+      - "V3 third-slice: multiple duplicated triplet tuples are aggregated independently."
+
+  - sampleId: "gc_triplet_key_order_sensitive"
+    source: "fixture"
+    priority: "p0"
+    category: "non_js"
+    accessTier: "A"
+    ruleTypes:
+      - "multi_key_triplet_unique"
+    requiresLogin: false
+    requiresCookieJar: false
+    requiresHeader: false
+    requiresJs: false
+    expectedLevel: "A"
+    actualLevel: "A"
+    failureType: null
+    errorCode: null
+    blocking: true
+    metadataPath: "samples/metadata/p0_non_js/group_consistency_triplet/gc_triplet_key_order_sensitive.yml"
+    expectedPath: "samples/expected/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+    fixturePaths:
+      consistency: "samples/fixtures/group_consistency_triplet/gc_triplet_key_order_sensitive.json"
+    notes:
+      - "V3 third-slice: key order is preserved exactly as provided by rule.keys."

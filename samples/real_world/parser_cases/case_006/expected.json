@@ -1,0 +1,6 @@
+{
+  "selector": "div.chapter",
+  "expected_matches": ["第一章 序章", "第二章 起点", "第三章 转折"],
+  "match_count": 3,
+  "notes": "tag.class: div.chapter excludes div.sidebar"
+}

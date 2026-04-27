@@ -1,0 +1,6 @@
+{
+  "selector": "li.searchresult",
+  "expected_matches": ["《活着》- 余华", "《许三观卖血记》- 余华"],
+  "match_count": 2,
+  "notes": "tag.class compound match, filters by both tag and class"
+}

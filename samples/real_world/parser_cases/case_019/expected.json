@@ -1,0 +1,6 @@
+{
+  "selector": "a.chapter-link",
+  "expected_matches": ["第一章 少年", "第二章 江湖"],
+  "match_count": 2,
+  "notes": "tag.class: a.chapter-link only, a.nav-link excluded"
+}

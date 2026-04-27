@@ -1,0 +1,10 @@
+{
+  "pass": true,
+  "checked_keys": [
+    "device_name",
+    "os_version"
+  ],
+  "checked_count": 4,
+  "issue_count": 0,
+  "issues": []
+}

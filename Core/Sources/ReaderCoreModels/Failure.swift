@@ -6,6 +6,7 @@ public enum FailureType: String, Codable, CaseIterable, Sendable {
     case RULE_INVALID
     case RULE_UNSUPPORTED
     case SEARCH_FAILED
+    case BOOK_INFO_FAILED
     case TOC_FAILED
     case CONTENT_FAILED
     case NETWORK_POLICY_MISMATCH
@@ -22,6 +23,7 @@ public enum Stage: String, Codable, Sendable {
     case REQUEST_BUILD
     case RESPONSE_PARSE
     case SEARCH_PARSE
+    case BOOK_INFO_PARSE
     case TOC_PARSE
     case CONTENT_PARSE
 }

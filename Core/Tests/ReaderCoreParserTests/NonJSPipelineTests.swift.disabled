@@ -1,0 +1,123 @@
+import XCTest
+@testable import ReaderCoreParser
+import ReaderCoreModels
+
+final class NonJSPipelineTests: XCTestCase {
+    private var engine: NonJSParserEngine!
+    private var source: BookSource!
+
+    override func setUp() {
+        super.setUp()
+        engine = NonJSParserEngine()
+        source = BookSource(
+            bookSourceName: "得奇小说（优+++）",
+            bookSourceUrl: "https://www.deqibook.com",
+            bookSourceGroup: "小说 书源",
+            bookSourceType: 0,
+            searchUrl: "/tag/?key={{key}}",
+            ruleSearch: "css:.item",
+            ruleBookInfo: "css:.itemtxt",
+            ruleToc: "css:#list@li",
+            ruleContent: "css:.con@html",
+            enabled: true,
+            enabledExplore: true,
+            header: [:],
+            enabledCookieJar: true
+        )
+    }
+
+    private func loadFixture(named: String) -> Data {
+        let url = Bundle.module.url(forResource: named, withExtension: "html", subdirectory: "e2e/non_js_real_source_001/fixtures")!
+        return try! Data(contentsOf: url)
+    }
+
+    func testFullPipeline() throws {
+        // Step 1: Search
+        let searchData = loadFixture(named: "search")
+        let searchResult = try engine.parseSearchResponse(searchData, source: source, query: SearchQuery(keyword: "传说"))
+        XCTAssertGreaterThan(searchResult.count, 0, "Search should return at least one result")
+        
+        let firstBook = searchResult.first!
+        print("Search result: \(firstBook.title) - \(firstBook.detailURL)")
+        
+        // Step 2: Detail
+        let detailData = loadFixture(named: "detail")
+        let bookInfo = try engine.parseBookInfoResponse(detailData, source: source, detailURL: firstBook.detailURL)
+        XCTAssertFalse(bookInfo.bookName.isEmpty, "Book info should have book name")
+        print("Book info: \(bookInfo.bookName) by \(bookInfo.author)")
+        
+        // Step 3: TOC
+        let tocData = loadFixture(named: "toc")
+        let tocResult = try engine.parseTOCResponse(tocData, source: source, detailURL: bookInfo.tocURL)
+        XCTAssertGreaterThan(tocResult.count, 0, "TOC should return at least one chapter")
+        
+        let firstChapter = tocResult.first!
+        print("First chapter: \(firstChapter.chapterTitle) - \(firstChapter.chapterURL)")
+        
+        // Step 4: Content
+        let contentData = loadFixture(named: "content")
+        let contentResult = try engine.parseContentResponse(contentData, source: source, chapterURL: firstChapter.chapterURL)
+        XCTAssertFalse(contentResult.content.isEmpty, "Content should not be empty")
+        print("Content length: \(contentResult.content.count) characters")
+        
+        // Verify the full pipeline worked
+        XCTAssertTrue(true, "Full pipeline completed successfully")
+    }
+
+    func runPipeline(keyword: String) throws {
+        // Step 1: Search
+        let searchData = loadFixture(named: "search")
+        let searchResult = try engine.parseSearchResponse(searchData, source: source, query: SearchQuery(keyword: keyword))
+        
+        if searchResult.isEmpty {
+            throw ReaderError(code: .parsingFailed, message: "Search returned no results")
+        }
+        
+        let firstBook = searchResult.first!
+        print("\n=== Search Result ===")
+        print("Book: \(firstBook.title)")
+        print("URL: \(firstBook.detailURL)")
+        print("Author: \(firstBook.author ?? "Unknown")")
+        
+        // Step 2: Detail
+        let detailData = loadFixture(named: "detail")
+        let bookInfo = try engine.parseBookInfoResponse(detailData, source: source, detailURL: firstBook.detailURL)
+        
+        print("\n=== Book Info ===")
+        print("Title: \(bookInfo.bookName)")
+        print("Author: \(bookInfo.author)")
+        print("Cover: \(bookInfo.coverURL)")
+        print("Intro: \(bookInfo.intro)")
+        print("TOC URL: \(bookInfo.tocURL)")
+        
+        // Step 3: TOC
+        let tocData = loadFixture(named: "toc")
+        let tocResult = try engine.parseTOCResponse(tocData, source: source, detailURL: bookInfo.tocURL)
+        
+        print("\n=== Table of Contents ===")
+        print("Found \(tocResult.count) chapters")
+        for (index, chapter) in tocResult.prefix(3).enumerated() {
+            print("\(index + 1). \(chapter.chapterTitle) - \(chapter.chapterURL)")
+        }
+        if tocResult.count > 3 {
+            print("... and \(tocResult.count - 3) more chapters")
+        }
+        
+        if tocResult.isEmpty {
+            throw ReaderError(code: .parsingFailed, message: "TOC returned no chapters")
+        }
+        
+        let firstChapter = tocResult.first!
+        
+        // Step 4: Content
+        let contentData = loadFixture(named: "content")
+        let contentResult = try engine.parseContentResponse(contentData, source: source, chapterURL: firstChapter.chapterURL)
+        
+        print("\n=== Chapter Content ===")
+        print("Chapter: \(firstChapter.chapterTitle)")
+        print("Content preview: \(contentResult.content.prefix(100))...")
+        print("Content length: \(contentResult.content.count) characters")
+        
+        print("\n=== Pipeline Complete ===")
+    }
+}

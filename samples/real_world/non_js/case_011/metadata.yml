@@ -1,0 +1,21 @@
+id: case_011
+source_name: Case-011-Non-JS
+source_url: http://case011.local
+non_js_only: true
+requires_login: false
+uses_js: false
+covered_stages:
+  - search
+  - detail
+  - toc
+  - content
+parser_features_used:
+  - simple_selector_class
+known_gaps: []
+fixture_origin: generated
+verification_status: invalid
+status: invalid
+failure_taxonomy:
+  - synthetic_fixture
+verification_commands:
+  - swift test --filter RealWorldNonJSE2ERegressionTests

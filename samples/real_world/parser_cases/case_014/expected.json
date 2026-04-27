@@ -1,0 +1,6 @@
+{
+  "selector": "p.desc",
+  "expected_matches": ["这是一本关于生存的小说。", "作者以平实的语言描述了极端苦难。"],
+  "match_count": 2,
+  "notes": "tag.class: p.desc only, p.note excluded"
+}

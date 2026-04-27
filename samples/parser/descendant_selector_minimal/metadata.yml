@@ -1,0 +1,38 @@
+id: descendant_selector_minimal
+name: Descendant Selector Minimal
+description: Test cases for one-level descendant selector capability
+scope: one_level_descendant_selector
+parent_selector_base:
+  - .class
+  - #id
+  - tag
+  - tag.class
+child_selector:
+  - simple_tag_only
+attr_whitelist:
+  - href
+  - src
+  - content
+  - text
+  - html
+unsupported:
+  - multi_level_descendant
+  - child_selector
+  - attribute_selector
+  - pseudo_selector
+  - index_selector
+  - js
+  - regex
+fields:
+  - name: class_parent_anchor
+    selector: ".chapter a@href"
+    description: Extract href from anchor tag inside class parent
+  - name: id_parent_image
+    selector: "#cover img@src"
+    description: Extract src from img tag inside id parent
+  - name: tag_class_parent_span
+    selector: "div.info span@text"
+    description: Extract text from span tag inside tag.class parent
+  - name: tag_parent_anchor
+    selector: "li a@href"
+    description: Extract href from anchor tag inside tag parent

@@ -73,7 +73,9 @@ final class AttributeExtractionMinimalTests: XCTestCase {
         </div>
         """
         let data = html.data(using: .utf8)!  
-        let result = try scheduler.evaluate(rule: ".item a@href", data: data, flow: .toc, source: bookSource)
+        // .item a@href is now supported by descendant selector, so this returns the href
+        // But .item@href still returns empty because strict attribute extraction doesn't traverse
+        let result = try scheduler.evaluate(rule: ".item@href", data: data, flow: .toc, source: bookSource)
         XCTAssertTrue(result.isEmpty)
     }
     

@@ -4,6 +4,19 @@ import ReaderCoreProtocols
 
 public final class NonJSRuleScheduler: RuleScheduler {
     public init() {}
+    
+    static let simpleTagNames: Set<String> = [
+        "a", "abbr", "address", "article", "aside", "audio", "b", "blockquote", "body", "br",
+        "button", "canvas", "caption", "cite", "code", "col", "colgroup", "dd", "del", "details",
+        "dfn", "dialog", "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure",
+        "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "hr", "html",
+        "i", "iframe", "img", "input", "ins", "kbd", "label", "legend", "li", "link", "main",
+        "map", "mark", "math", "menu", "menuitem", "meta", "meter", "nav", "noscript", "object",
+        "ol", "optgroup", "option", "output", "p", "param", "pre", "progress", "q", "rb", "rp",
+        "rt", "rtc", "ruby", "s", "samp", "script", "section", "select", "small", "source",
+        "span", "strong", "sub", "sup", "table", "tbody", "td", "template", "textarea", "tfoot",
+        "th", "thead", "time", "title", "tr", "track", "u", "ul", "var", "video", "wbr"
+    ]
 
     public func evaluate(rule: String, data: Data, flow: ParseFlow, source: BookSource) throws -> [String] {
         let trimmedRule = rule.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -206,6 +219,54 @@ private extension NonJSRuleScheduler {
             throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_css_selector", message: "CSS selector is empty.")
         }
         
+        // Check for text filter syntax: "text.XXX" or "parent text.XXX@attr"
+        if fullSelector.starts(with: "text.") || fullSelector.contains(" text.") {
+            if let textFilter = parseTextFilter(fullSelector) {
+                // Validate text filter components
+                if let parent = textFilter.parent {
+                    if !isValidV2Selector(parent) {
+                        throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_parent_selector", message: "Parent selector must be V2 simple selector.")
+                    }
+                }
+                if let attr = textFilter.attribute {
+                    let validAttributes = ["href", "src", "content", "text", "html"]
+                    if !validAttributes.contains(attr) {
+                        throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_attribute", message: "Unsupported attribute: \(attr).")
+                    }
+                }
+                var output: [String] = []
+                for input in inputs {
+                    output.append(contentsOf: extractByTextFilter(text: textFilter.text, attribute: textFilter.attribute, parent: textFilter.parent, html: input))
+                }
+                return output
+            } else {
+                // Invalid text filter syntax, return empty
+                return []
+            }
+        }
+        
+        // Check for descendant selector syntax: "parent child@attr" or "parent child"
+        if let descendant = parseDescendantSelector(fullSelector) {
+            // Validate descendant selector components
+            if !isValidV2Selector(descendant.parent) {
+                throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_parent_selector", message: "Parent selector must be V2 simple selector.")
+            }
+            if !isValidSimpleTag(descendant.child) {
+                throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_child_selector", message: "Child selector must be a simple tag name.")
+            }
+            if let attr = descendant.attribute {
+                let validAttributes = ["href", "src", "content", "text", "html"]
+                if !validAttributes.contains(attr) {
+                    throw makeError(flow: flow, type: .RULE_INVALID, reason: "invalid_attribute", message: "Unsupported attribute: \(attr).")
+                }
+            }
+            var output: [String] = []
+            for input in inputs {
+                output.append(contentsOf: extractByDescendantCSS(parent: descendant.parent, child: descendant.child, attribute: descendant.attribute, html: input))
+            }
+            return output
+        }
+        
         // Parse attribute extraction syntax: selector@attr
         let (baseSelector, attribute) = parseAttributeSyntax(fullSelector)
         if let attribute = attribute {
@@ -249,12 +310,259 @@ private extension NonJSRuleScheduler {
         return output
     }
     
+    struct DescendantSelector {
+        let parent: String
+        let child: String
+        let attribute: String?
+    }
+    
+    func parseDescendantSelector(_ rule: String) -> DescendantSelector? {
+        // Check if rule contains exactly one space (descendant selector pattern)
+        let parts = rule.split(separator: " ")
+        guard parts.count == 2 else { return nil }
+        
+        let parent = String(parts[0])
+        let childPart = String(parts[1])
+        
+        // Parse attribute from child if present
+        let (child, attr) = parseAttributeSyntax(childPart)
+        
+        return DescendantSelector(parent: parent, child: child, attribute: attr)
+    }
+    
+    func isValidV2Selector(_ selector: String) -> Bool {
+        return SimpleSelector.parse(selector) != nil
+    }
+    
+    func isValidSimpleTag(_ tag: String) -> Bool {
+        return NonJSRuleScheduler.simpleTagNames.contains(tag.lowercased())
+    }
+    
+    func extractByDescendantCSS(parent: String, child: String, attribute: String?, html: String) -> [String] {
+        // First, find parent nodes using V2 selector
+        guard let simpleParent = SimpleSelector.parse(parent) else {
+            return []
+        }
+        
+        // Get parent HTML content
+        let parentHTMLs = extractParentHTMLBySimpleCSS(selector: simpleParent, html: html)
+        
+        var results: [String] = []
+        let escapedChild = NSRegularExpression.escapedPattern(for: child)
+        
+        for parentHTML in parentHTMLs {
+            if let attr = attribute {
+                if attr == "text" || attr == "html" {
+                    // Extract text or html content from child tag
+                    let pattern = "<\(escapedChild)[^>]*>([\\s\\S]*?)</\(escapedChild)>"
+                    let matches = regexGroupMatches(pattern: pattern, in: parentHTML, group: 1).map(stripHTMLTags)
+                    results.append(contentsOf: matches)
+                } else {
+                    // Extract attribute from child tag (href, src, content)
+                    let attrEscaped = NSRegularExpression.escapedPattern(for: attr)
+                    let pattern = "<\(escapedChild)[^>]*\(attrEscaped)=[\"']([^\"']+)[\"'][^>]*>"
+                    let matches = regexGroupMatches(pattern: pattern, in: parentHTML, group: 1)
+                    results.append(contentsOf: matches)
+                }
+            } else {
+                // Extract text content from child tag
+                let pattern = "<\(escapedChild)[^>]*>([\\s\\S]*?)</\(escapedChild)>"
+                let matches = regexGroupMatches(pattern: pattern, in: parentHTML, group: 1).map(stripHTMLTags)
+                results.append(contentsOf: matches)
+            }
+        }
+        
+        return results
+    }
+    
+    func extractParentHTMLBySimpleCSS(selector: SimpleSelector, html: String) -> [String] {
+        switch selector {
+        case .byClass(let className):
+            let cls = NSRegularExpression.escapedPattern(for: className)
+            let pattern = "<([a-zA-Z0-9]+)[^>]*class=[\"'][^\"']*\\b\(cls)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\\1>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 2)
+        case .byId(let id):
+            let escaped = NSRegularExpression.escapedPattern(for: id)
+            let pattern = "<([a-zA-Z0-9]+)[^>]*id=[\"']\(escaped)[\"'][^>]*>([\\s\\S]*?)</\\1>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 2)
+        case .byTag(let tag):
+            let escaped = NSRegularExpression.escapedPattern(for: tag)
+            let pattern = "<\(escaped)[^>]*>([\\s\\S]*?)</\(escaped)>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 1)
+        case .byTagAndClass(let tag, let className):
+            let tagEscaped = NSRegularExpression.escapedPattern(for: tag)
+            let clsEscaped = NSRegularExpression.escapedPattern(for: className)
+            let pattern = "<\(tagEscaped)[^>]*class=[\"'][^\"']*\\b\(clsEscaped)\\b[^\"']*[\"'][^>]*>([\\s\\S]*?)</\(tagEscaped)>"
+            return regexGroupMatches(pattern: pattern, in: html, group: 1)
+        }
+    }
+    
     func parseAttributeSyntax(_ selector: String) -> (String, String?) {
         let parts = selector.components(separatedBy: "@")
         if parts.count == 2 {
             return (parts[0].trimmingCharacters(in: .whitespaces), parts[1].trimmingCharacters(in: .whitespaces))
         }
         return (selector, nil)
+    }
+    
+    struct TextFilter {
+        let text: String
+        let attribute: String?
+        let parent: String?
+    }
+    
+    func parseTextFilter(_ rule: String) -> TextFilter? {
+        // Check for parent scoped text filter: "parent text.XXX@attr"
+        let parts = rule.split(separator: " ")
+        if parts.count == 2 {
+            let parent = String(parts[0])
+            let textPart = String(parts[1])
+            if textPart.starts(with: "text.") {
+                // Check if parent is a valid V2 selector (not another text filter)
+                if !parent.starts(with: "text.") && SimpleSelector.parse(parent) != nil {
+                    let textContent = textPart.dropFirst(5) // Remove "text."
+                    let (text, attr) = parseAttributeSyntax(String(textContent))
+                    return TextFilter(text: text, attribute: attr, parent: parent)
+                }
+            }
+        } else if parts.count == 1 && rule.starts(with: "text.") {
+            // Simple text filter: "text.XXX@attr"
+            let textContent = rule.dropFirst(5) // Remove "text."
+            let (text, attr) = parseAttributeSyntax(String(textContent))
+            return TextFilter(text: text, attribute: attr, parent: nil)
+        }
+        return nil
+    }
+
+    func extractByTextFilter(text: String, attribute: String?, parent: String?, html: String) -> [String] {
+        var targetHTML = html
+
+        if let parent = parent {
+            if let simpleParent = SimpleSelector.parse(parent) {
+                let parentHTMLs = extractParentHTMLBySimpleCSS(selector: simpleParent, html: html)
+                if !parentHTMLs.isEmpty {
+                    targetHTML = parentHTMLs.joined()
+                } else {
+                    return []
+                }
+            } else {
+                return []
+            }
+        }
+
+        let tagPattern = "<([a-zA-Z0-9]+)([^/>]*)(/?>)"
+        let endTagPattern = "</([a-zA-Z0-9]+)>"
+
+        var tags: [(tag: String, content: String)] = []
+
+        let tagRegex = try? NSRegularExpression(pattern: tagPattern, options: [])
+        let endTagRegex = try? NSRegularExpression(pattern: endTagPattern, options: [])
+
+        guard let tagRegex = tagRegex, let endTagRegex = endTagRegex else {
+            return []
+        }
+
+        let fullRange = NSRange(targetHTML.startIndex..<targetHTML.endIndex, in: targetHTML)
+        let tagMatches = tagRegex.matches(in: targetHTML, options: [], range: fullRange)
+
+        guard let textRange = targetHTML.range(of: text) else {
+            return []
+        }
+
+        for tagMatch in tagMatches {
+            guard let tagRange = Range(tagMatch.range, in: targetHTML) else { continue }
+            let tagStr = String(targetHTML[tagRange])
+
+            if tagStr.contains("/>") { continue }
+
+            let tagNameMatches = regexGroupMatches(pattern: "<([a-zA-Z0-9]+)", in: tagStr, group: 1)
+            guard let tagName = tagNameMatches.first else { continue }
+
+            var searchRange = NSRange(tagRange.upperBound..<targetHTML.endIndex, in: targetHTML)
+            var depth = 1
+
+            while depth > 0 {
+                if let endMatch = endTagRegex.firstMatch(in: targetHTML, options: [], range: searchRange),
+                   let endRange = Range(endMatch.range, in: targetHTML) {
+                    let endStr = String(targetHTML[endRange])
+                    let endNameMatches = regexGroupMatches(pattern: "</([a-zA-Z0-9]+)", in: endStr, group: 1)
+                    guard let endName = endNameMatches.first else { break }
+
+                    if endName == tagName {
+                        if depth == 1 {
+                            let contentRange = tagRange.upperBound..<endRange.lowerBound
+                            if contentRange.lowerBound <= textRange.lowerBound && contentRange.upperBound >= textRange.upperBound {
+                                let fullTag = String(targetHTML[tagRange.lowerBound..<endRange.upperBound])
+                                let content = String(targetHTML[contentRange])
+                                tags.append((tag: fullTag, content: content))
+                            }
+                            break
+                        } else {
+                            depth -= 1
+                        }
+                    }
+                    searchRange = NSRange(endRange.upperBound..<targetHTML.endIndex, in: targetHTML)
+                } else {
+                    break
+                }
+            }
+        }
+
+        if tags.isEmpty {
+            return []
+        }
+
+        tags.sort { $0.content.count < $1.content.count }
+
+        let bestMatchTag = tags[0]
+
+        var results: [String] = []
+
+        if let attribute = attribute {
+            // Extract attribute from the tag (only from the hit node or its minimal clickable ancestor, no fallback)
+            let attrPattern = attribute + "=[\"']([^\"']+)[\"']"
+            let attrMatches = regexGroupMatches(pattern: attrPattern, in: bestMatchTag.tag, group: 1)
+            if let attrValue = attrMatches.first {
+                results.append(attrValue)
+            } else {
+                var foundValidParent = false
+                for tag in tags {
+                    if tag.tag.contains(bestMatchTag.tag) && tag.tag != bestMatchTag.tag {
+                        if let openingTagEnd = tag.tag.range(of: ">"), let closingTagStart = tag.tag.range(of: "</", options: .backwards) {
+                            let tagContent = String(tag.tag[openingTagEnd.upperBound..<closingTagStart.lowerBound])
+                            let tagContentTrimmed = tagContent.trimmingCharacters(in: .whitespacesAndNewlines)
+                            let bestMatchTrimmed = bestMatchTag.tag.trimmingCharacters(in: .whitespacesAndNewlines)
+                            if tagContentTrimmed == bestMatchTrimmed {
+                                let parentAttrMatches = regexGroupMatches(pattern: attrPattern, in: tag.tag, group: 1)
+                                if let parentAttrValue = parentAttrMatches.first {
+                                    results.append(parentAttrValue)
+                                    foundValidParent = true
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+                if !foundValidParent {
+                    return []
+                }
+            }
+        } else {
+            let strippedContent = stripHTMLTags(bestMatchTag.content)
+            let lines = strippedContent.split(separator: "\n")
+            for line in lines {
+                let trimmedLine = line.trimmingCharacters(in: .whitespaces)
+                if trimmedLine.contains(text) {
+                    results.append(trimmedLine)
+                    break
+                }
+            }
+            if results.isEmpty {
+                results.append(strippedContent)
+            }
+        }
+
+        return results
     }
 
     func applyXPath(_ expr: String, on inputs: [String], flow: ParseFlow) throws -> [String] {

@@ -1,0 +1,6 @@
+{
+  "selector": ".catalog-item",
+  "expected_matches": ["第001章 开始", "第002章 危机", "第003章 突破", "第004章 高峰", "第005章 结局"],
+  "match_count": 5,
+  "notes": ".class: five catalog entries, all li.catalog-item"
+}

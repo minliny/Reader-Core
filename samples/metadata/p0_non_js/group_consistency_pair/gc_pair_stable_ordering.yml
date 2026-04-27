@@ -1,0 +1,35 @@
+sampleId: "gc_pair_stable_ordering"
+sampleFile: "samples/fixtures/group_consistency_pair/gc_pair_stable_ordering.json"
+priority: p0
+category: non_js
+sourceType: fixture
+phase: V3_ACTIVE
+stage: "v3_second_slice"
+flow: "group_consistency_pair"
+title: "Group consistency pair exact stable ordering"
+featureTags:
+  - "group_consistency"
+  - "multi_key_pair_unique"
+  - "stable_ordering"
+ruleTypes:
+  - "multi_key_pair_unique"
+expectedLevel: A
+compatLevel: A
+mustPassStage: v3
+blocking: true
+requiresLogin: false
+requiresCookieJar: false
+requiresCustomHeader: false
+requiresJs: false
+sourcePath: "samples/fixtures/group_consistency_pair/gc_pair_stable_ordering.json"
+expectedPath: "samples/expected/group_consistency_pair/gc_pair_stable_ordering.json"
+fixtureFiles:
+  - "samples/fixtures/group_consistency_pair/gc_pair_stable_ordering.json"
+expectedOutput:
+  search: null
+  toc: "samples/expected/group_consistency_pair/gc_pair_stable_ordering.json"
+  content: null
+knownFailureType: null
+owner: "core-parser"
+notes: "V3 second-slice sample. Issue ordering is stable by first tuple appearance."
+

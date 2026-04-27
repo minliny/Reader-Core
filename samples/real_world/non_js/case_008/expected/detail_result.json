@@ -1,0 +1,7 @@
+{
+  "bookName": "Sample Book 8",
+  "author": "Sample Author 8",
+  "coverURL": "http://fixture.local/cover8.jpg",
+  "intro": "This is the eighth sample book for testing.",
+  "tocURL": "http://fixture.local/toc8"
+}

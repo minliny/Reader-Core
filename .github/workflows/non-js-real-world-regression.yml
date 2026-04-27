@@ -1,0 +1,46 @@
+name: Non-JS Real World Regression
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly run
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Swift
+      uses: swift-actions/setup-swift@v1
+      with:
+        swift-version: '5.9'
+    
+    - name: Run non-JS real world regression tests
+      run: |
+        cd Core && swift test --filter RealWorldNonJSE2ERegressionTests
+    
+    - name: Validate JSON files
+      run: |
+        python3 - << 'PY'
+        import json, pathlib
+        for root in ["samples/e2e", "samples/real_world"]:
+            base = pathlib.Path(root)
+            if base.exists():
+                for p in base.rglob("*.json"):
+                    json.load(open(p, encoding="utf-8"))
+                    print("JSON OK", p)
+        PY
+    
+    - name: Validate YAML files
+      run: |
+        ruby -e 'require "yaml"; Dir["samples/**/*.yml"].each { |f| YAML.load_file(f); puts "YAML OK #{f}" }'
+    
+    - name: Upload regression report
+      uses: actions/upload-artifact@v3
+      with:
+        name: regression-report
+        path: samples/real_world/non_js/regression_report.md

@@ -1,0 +1,18 @@
+id: case_002
+source_name: Sample-002-Fixture
+source_url: http://fixture.local
+non_js_only: true
+requires_login: false
+uses_js: false
+covered_stages:
+  - search
+  - detail
+  - toc
+  - content
+parser_features_used:
+  - simple_selector_class
+known_gaps: []
+fixture_origin: sample
+verification_status: pass
+verification_commands:
+  - swift test --filter RealWorldNonJSE2ERegressionTests

@@ -1,0 +1,59 @@
+{
+  "pass": false,
+  "checked_key": "device_name",
+  "checked_count": 6,
+  "issue_count": 3,
+  "issues": [
+    {
+      "code": "GROUP_DUPLICATE_SINGLE_KEY",
+      "key": "device_name",
+      "value": "alpha",
+      "message": "duplicate value 'alpha' for key 'device_name'",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-001",
+          "r-003"
+        ],
+        "positions": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "code": "GROUP_DUPLICATE_SINGLE_KEY",
+      "key": "device_name",
+      "value": "beta",
+      "message": "duplicate value 'beta' for key 'device_name'",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-002",
+          "r-004"
+        ],
+        "positions": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "code": "GROUP_DUPLICATE_SINGLE_KEY",
+      "key": "device_name",
+      "value": "gamma",
+      "message": "duplicate value 'gamma' for key 'device_name'",
+      "evidence": {
+        "duplicate_count": 2,
+        "record_ids": [
+          "r-005",
+          "r-006"
+        ],
+        "positions": [
+          4,
+          5
+        ]
+      }
+    }
+  ]
+}
