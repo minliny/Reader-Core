@@ -8,8 +8,7 @@ import XCTest
 ///   * downgrades / rewords the PASS_WITH_KNOWN_DETAIL_FIELD_ISSUES status,
 ///   * loses the structural numbers (659 chapters / 3465 chars) from the
 ///     persisted real-pass report,
-///   * silently upgrades the regression report into a "regression baseline
-///     ready" claim, or
+///   * silently upgrades the regression report into a baseline claim, or
 ///   * detaches the plan document from the completed-case fact.
 ///
 /// The gate intentionally does **not** fail on the documented known issues
@@ -89,11 +88,13 @@ final class Case022FirstRealPassFreezeGateTests: XCTestCase {
         let report = read("samples/real_world/non_js/regression_report.md")
         XCTAssertFalse(report.isEmpty, "freeze_gate: regression_report.md must exist and be non-empty")
 
-        assertContains(report, "real_valid_pass_cases = 1", in: "regression_report.md")
         assertContains(report, "FIRST_REAL_PASS_CASE_ESTABLISHED", in: "regression_report.md")
+        assertContains(report, "case_022 = FIRST_REAL_PASS_CASE", in: "regression_report.md")
+        assertContains(report, "NOT baseline ready", in: "regression_report.md")
 
-        // The forbidden upgrade-claim literal must not appear.
+        // Count may grow after case_022; baseline upgrade tokens must not.
         assertNotContains(report, "NON_JS_REAL_WORLD_REGRESSION_BASELINE_READY", in: "regression_report.md")
+        assertNotContains(report, "BASELINE_READY", in: "regression_report.md")
     }
 
     // 7: PLAN.md must record case_022 completion + the locked status.

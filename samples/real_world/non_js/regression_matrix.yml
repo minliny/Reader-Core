@@ -361,3 +361,19 @@ cases:
   - synthetic_fixture
   last_verified_command: swift test --filter RealWorldNonJSE2ERegressionTests
   notes: synthetic data - excluded from baseline
+- case_id: case_023
+  source_name: Project Gutenberg Pride and Prejudice
+  source_url: https://www.gutenberg.org/ebooks/1342
+  status: pass
+  stage_results:
+    search: not_evaluated
+    detail: pass
+    toc: pass
+    content: pass
+  parser_features_used:
+  - simple_selector_tag
+  - attribute_extraction_minimal
+  failure_reason: []
+  failure_taxonomy: []
+  last_verified_command: temp SwiftPM evaluator using ReaderCoreParser public API
+  notes: real static HTML; SECOND_REAL_PASS_CASE_ESTABLISHED; no Parser source changes

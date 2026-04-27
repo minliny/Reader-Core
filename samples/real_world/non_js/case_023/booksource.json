@@ -1,0 +1,15 @@
+{
+  "bookSourceName": "Project Gutenberg Pride and Prejudice",
+  "bookSourceUrl": "https://www.gutenberg.org/",
+  "bookSourceGroup": "real_world_non_js",
+  "bookSourceType": 0,
+  "searchUrl": "https://www.gutenberg.org/ebooks/search/?query={{key}}",
+  "ruleSearch": "css:.booklink",
+  "ruleBookInfo": "css:h1",
+  "ruleToc": "css:a@href",
+  "ruleContent": "css:body",
+  "enabled": true,
+  "enabledExplore": false,
+  "enabledCookieJar": false,
+  "header": {}
+}

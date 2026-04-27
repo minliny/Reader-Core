@@ -1,0 +1,70 @@
+---
+id: case_023
+name: Project Gutenberg Pride and Prejudice
+bookSourceUrl: https://www.gutenberg.org/
+bookUrl: https://www.gutenberg.org/ebooks/1342
+tocUrl: https://www.gutenberg.org/files/1342/1342-h/1342-h.htm
+contentUrl: https://www.gutenberg.org/files/1342/1342-h/1342-h.htm
+language: en
+category: non_js
+status: PASS_WITH_LIMITATIONS
+priority: high
+difficulty: low
+fixture_origin: real
+tags:
+  - static_html
+  - no_js
+  - simple_selector
+  - real_world
+  - second_real_pass_case
+metadata:
+  source: real_fetch_curl
+  created_at: 2026-04-27
+  last_updated: 2026-04-27
+  fetched_at: 2026-04-27
+verification:
+  marker: SECOND_REAL_PASS_CASE_ESTABLISHED
+  parser_source_modified: false
+  clean_room: true
+  external_gpl_code_copied: false
+  command: temp SwiftPM evaluator using ReaderCoreParser public API
+  result:
+    content_first:
+      status: PASS
+      http_status: 200
+      blocked_markers: []
+      html_bytes: 806295
+      continuous_text_marker: Chapter I
+    detail:
+      status: PASS
+      tocUrl_extracted: true
+      bookName: Pride and Prejudice by Jane Austen
+      known_issue: tocUrl uses parser detailURL fallback because current BookInfo API accepts one rule line only
+    toc:
+      status: PASS
+      chapter_count: 165
+      known_issue: chapterTitle == chapterURL because single ruleToc cannot output title|url pairs
+    content:
+      status: PASS
+      content_length: 722016
+      known_issue: css:body captures full page body, including front/back matter
+  do_not_apply:
+    - parser_modification
+    - selector_expansion
+    - text_filter_expansion
+    - js_rendering
+    - api_fetch
+    - regex_rule
+expected:
+  detail:
+    - bookName
+    - tocUrl
+  toc:
+    - chapterList
+  content:
+    - content
+pipeline:
+  steps:
+    - parseBookInfoResponse(detail.html)
+    - parseTOCResponse(toc.html)
+    - parseContentResponse(content.html)

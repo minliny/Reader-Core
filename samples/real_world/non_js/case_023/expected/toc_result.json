@@ -1,0 +1,11 @@
+{
+  "chapterCount": 165,
+  "firstItem": {
+    "chapterTitle": "#PREFACE",
+    "chapterURL": "#PREFACE",
+    "chapterIndex": 0
+  },
+  "knownIssues": [
+    "chapterTitle equals chapterURL because ruleToc uses css:a@href"
+  ]
+}

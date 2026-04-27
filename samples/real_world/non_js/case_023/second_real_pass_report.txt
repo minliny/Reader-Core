@@ -1,0 +1,32 @@
+============ SECOND_REAL_PASS_CASE_REPORT ============
+case: case_023
+candidate_url: https://www.gutenberg.org/files/1342/1342-h/1342-h.htm
+
+content_check:
+  status: PASS
+  http_status: 200
+  blocked_markers: []
+  html_bytes: 806295
+  continuous_text_marker: Chapter I
+
+detail:
+  status: PASS
+  extracted_fields:
+    bookName: Pride and Prejudice by Jane Austen
+    tocUrl: https://www.gutenberg.org/files/1342/1342-h/1342-h.htm
+
+toc:
+  status: PASS
+  chapter_count: 165
+  first_title: #PREFACE
+  first_url: #PREFACE
+
+content:
+  status: PASS
+  content_length: 722016
+
+final:
+  SECOND_REAL_PASS_CASE: YES
+  CASE_023: SECOND_REAL_PASS_CASE_ESTABLISHED
+  real_valid_pass_cases: 2
+======================================================

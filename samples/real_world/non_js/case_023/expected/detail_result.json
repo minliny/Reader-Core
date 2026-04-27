@@ -1,0 +1,7 @@
+{
+  "bookName": "Pride and Prejudice by Jane Austen",
+  "tocUrl": "https://www.gutenberg.org/files/1342/1342-h/1342-h.htm",
+  "knownIssues": [
+    "tocUrl uses parser detailURL fallback"
+  ]
+}
